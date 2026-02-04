@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { Calendar, Check, BookOpen, Users, Bell, Heart, Clock, ChevronRight, Star, Menu, X } from 'lucide-react';
+import React, { useState } from 'react';
+import { Calendar, Check, BookOpen, Users, Heart, Clock, ChevronRight, Star, Menu, X } from 'lucide-react';
 
 // Acts 2 Formation Companion App - Digital Discipleship Tool
 const App = () => {
