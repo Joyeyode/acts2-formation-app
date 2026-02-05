@@ -5,9 +5,9 @@ const App = () => {
   return (
     <div className="min-h-screen bg-gray-50 flex flex-col">
       {/* Header */}
-      <div className="bg-white px-6 pt-12 pb-6 border-b border-gray-100">
-        <h1 className="text-2xl font-bold text-gray-900">Acts 2 Formation</h1>
-        <p className="text-gray-500 text-sm">Participant Companion</p>
+      <div className="bg-white px-6 pt-12 pb-6 border-b border-gray-100 text-slate-900">
+        <h1 className="text-2xl font-bold">Acts 2 Formation</h1>
+        <p className="text-gray-500 text-sm italic">Back to Basics v1.0</p>
       </div>
 
       <div className="p-6 space-y-6">
@@ -22,47 +22,33 @@ const App = () => {
               <Calendar size={24} />
             </div>
           </div>
-          <button className="w-full py-3 bg-white text-indigo-600 rounded-xl font-bold text-sm shadow-sm active:scale-95 transition-transform">
+          <button className="w-full py-3 bg-white text-indigo-600 rounded-xl font-bold text-sm">
             View Daily Readings
           </button>
         </div>
 
-        {/* Resources Section */}
+        {/* Categories */}
         <div className="space-y-4">
           <h3 className="text-sm font-semibold text-gray-400 uppercase tracking-wider">Resources</h3>
           
-          {/* OIAP Card */}
           <div className="bg-white rounded-2xl border border-gray-100 p-4 flex items-center justify-between shadow-sm">
-            <div className="flex items-center gap-4">
+            <div className="flex items-center gap-4 text-slate-900">
               <div className="p-2 bg-blue-50 text-blue-600 rounded-lg">
                 <BookOpen size={20} />
               </div>
-              <span className="font-semibold text-gray-800">OIAP Method Guide</span>
+              <span className="font-semibold">OIAP Method Guide</span>
             </div>
             <ChevronRight size={18} className="text-gray-300" />
           </div>
 
-          {/* Shabbat Card */}
           <div className="bg-white rounded-2xl border border-gray-100 p-4 flex items-center justify-between shadow-sm">
-            <div className="flex items-center gap-4">
+            <div className="flex items-center gap-4 text-slate-900">
               <div className="p-2 bg-orange-50 text-orange-600 rounded-lg">
                 <Clock size={20} />
               </div>
-              <span className="font-semibold text-gray-800">Shabbat Rhythm</span>
+              <span className="font-semibold">Shabbat Rhythm</span>
             </div>
             <ChevronRight size={18} className="text-gray-300" />
-          </div>
-        </div>
-
-        {/* Community Grid */}
-        <div className="grid grid-cols-2 gap-4">
-          <div className="bg-white p-4 rounded-2xl border border-gray-100 shadow-sm text-center">
-            <Users className="mx-auto text-indigo-500 mb-2" size={24} />
-            <p className="text-sm font-bold text-gray-900">Table Group</p>
-          </div>
-          <div className="bg-white p-4 rounded-2xl border border-gray-100 shadow-sm text-center">
-            <BookOpen className="mx-auto text-green-500 mb-2" size={24} />
-            <p className="text-sm font-bold text-gray-900">Scripture</p>
           </div>
         </div>
       </div>
