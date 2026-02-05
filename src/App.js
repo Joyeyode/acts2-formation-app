@@ -6,25 +6,21 @@ const App = () => {
     <div className="min-h-screen bg-slate-50 flex flex-col font-sans">
       {/* Header */}
       <div className="bg-white px-6 pt-12 pb-6 border-b border-slate-200">
-        <h1 className="text-2xl font-black text-slate-900">Acts 2 Formation</h1>
-        <p className="text-slate-500 text-sm font-medium">Participant Companion v1.0</p>
+        <h1 className="text-2xl font-black text-slate-900 leading-tight">Acts 2 Formation</h1>
+        <p className="text-slate-500 text-sm font-medium">Participant Companion</p>
       </div>
 
       <div className="p-6 space-y-6 max-w-md mx-auto w-full">
         {/* Weekly Progress Card */}
-        <div className="bg-indigo-600 rounded-[32px] p-8 text-white shadow-xl">
-          <div className="flex justify-between items-start mb-6">
-            <div>
-              <p className="text-indigo-100 text-xs font-bold uppercase tracking-widest mb-1">Current Week</p>
-              <h2 className="text-2xl font-bold">Week 1: The Call</h2>
-            </div>
-            <div className="bg-white/20 p-3 rounded-2xl">
-              <Calendar size={24} />
-            </div>
+        <div className="bg-indigo-600 rounded-[32px] p-8 text-white shadow-xl relative overflow-hidden">
+          <div className="relative z-10">
+            <p className="text-indigo-100 text-xs font-bold uppercase tracking-widest mb-1">Current Week</p>
+            <h2 className="text-2xl font-bold mb-6">Week 1: The Call</h2>
+            <button className="w-full py-4 bg-white text-indigo-600 rounded-2xl font-bold text-sm shadow-sm active:scale-95 transition-transform">
+              View Daily Readings
+            </button>
           </div>
-          <button className="w-full py-4 bg-white text-indigo-600 rounded-2xl font-bold text-sm shadow-sm active:scale-95 transition-transform">
-            View Daily Readings
-          </button>
+          <Calendar className="absolute -right-4 -top-4 text-white/10" size={120} />
         </div>
 
         {/* Resources Section */}
