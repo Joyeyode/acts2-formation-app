@@ -8,7 +8,7 @@ export const ShabbatContent = {
         {
             icon: '⏸️',
             step: '1. CEASE',
-            description: 'Stop producing, start receiving. 'Ceasing means putting down the tools of work—both physical and digital. Turn off email. Step away from side hustles. Stop thinking about your to-do list. For 24 hours, you are not a producer. You are a beloved child of God.',
+            description: "Stop producing, start receiving. 'Ceasing means putting down the tools of work—both physical and digital. Turn off email. Step away from side hustles. Stop thinking about your to-do list. For 24 hours, you are not a producer. You are a beloved child of God.",
             details: [
                 'Turn off work notifications',
         	'Avoid shopping, errands, or household projects',
@@ -20,8 +20,8 @@ export const ShabbatContent = {
         {
             icon: '🎉',
             step: '2. DELIGHT',
-            description: 'Enjoy God and His good gifts',
-      description: 'Shabbat isn\'t about suffering through boredom. It\'s about delight. Enjoy a long meal with people you love. Take a nap. Go for a walk. Read for pleasure. Play music. Laugh. Shabbat is a feast, not a fast.',
+            description: "Enjoy God and His good gifts',
+      description: 'Shabbat isn\'t about suffering through boredom. It\'s about delight. Enjoy a long meal with people you love. Take a nap. Go for a walk. Read for pleasure. Play music. Laugh. Shabbat is a feast, not a fast.",
             details: [
                 'Prepare a special meal (or order your favorite food)',
        		'Spend unhurried time with family or friends',
@@ -35,7 +35,7 @@ export const ShabbatContent = {
         {
             icon: '🙏',
             step: '3. BLESS',
-            description: 'Shabbat is ultimately about turning our attention to God. We worship, we pray, we reflect on His goodness. And we bless others—speaking words of life over our family, friends, and community.',
+            description: "Shabbat is ultimately about turning our attention to God. We worship, we pray, we reflect on His goodness. And we bless others—speaking words of life over our family, friends, and community.",
             details: [
                 'Attend gathered worship on Sunday',
         	'Spend extended time in prayer and Scripture',
