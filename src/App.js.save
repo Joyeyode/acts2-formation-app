@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Calendar, Check, BookOpen, Users, Star, ChevronRight, Heart, ArrowLeft } from 'lucide-react';
 import { OIAPContent } from './resources/OIAPContent';
 import { ChavrutaContent } from './resources/ChavrutaContent';
-import { ShabbatContent } from './resources/ShabbatContent';
+<import { ShabbatContent } from './resources/ShabbatContent';
 import { HebrewContent } from './resources/HebrewContent';
 import { DisciplinesContent } from './resources/DisciplinesContent';
 import { ReflectionContent } from './resources/ReflectionContent';
@@ -50,8 +50,8 @@ const weeklyScripture = {
     12: { passage: "Ephesians 4:29-32", focus: "Fruit of Spirit Part 2" },
     13: { passage: "1 Corinthians 12:4-11", focus: "Spiritual Gifts" },
     14: { passage: "Romans 8:26-27", focus: "Prayer in Spirit" },
-    15: { passage: "Acts 2:42-47", focus: "Church Community" },
-    16: { passage: "Ephesians 6:10-18", focus: "Armor of God" },
+   15: { passage: "Acts 2:42-47", focus: "Church Community" },
+ x   16: { passage: "Ephesians 6:10-18", focus: "Armor of God" },
     17: { passage: "2 Corinthians 10:3-5", focus: "Spiritual Battle" },
     18: { passage: "Matthew 28:18-20", focus: "Great Commission" },
     19: { passage: "Acts 1:8", focus: "Witnesses" },
@@ -507,21 +507,19 @@ export default function App() {
                                         }}>
                                             {completedTasks[`${currentWeekNum}-${currentDay}-${task.id}`] && <Check size={14} color="white" />}
                                         </div>
-                                 <div style={{ flex: 1 }}>
-                    <div style={{ 
-                        fontWeight: 'bold', 
-                        color: colors.darkBlue,
-                        textDecoration: completedTasks[`${currentWeekNum}-${currentDay}-${task.id}`] ? 'line-through' : 'none'
-                    }}>{task.task}</div>
-                    <div style={{ fontSize: '0.8rem', opacity: 0.6 }}>{task.time} • {task.pillar}</div>
-                </div>
-            </div> // Closes the task row container
-        ))}
-    </div> // Closes the tasks list container
-)}
+                                        <div style={{ flex: 1 }}>
+                                            <div style={{ fontWeight: 'bold', color: colors.darkBlue,
+                                                textDecoration: completedTasks[`${currentWeekNum}-${currentDay}-${task.id}`] ? 'line-through' : 'none'
+                                            }}>{task.task}</div>
+                                            <div style={{ fontSize: '0.8rem', opacity: 0.6 }}>{task.time} • {task.pillar}</div>
+                                        </div>
+                                    </div>
+                                ))}
+                            </div>
+                        )}
 
-{activeTab === 'progress' && (
-    <div style={{ padding: '20px' }}> {/* Ensure this div has its content and a closing tag below */}
+                        {activeTab === 'progress' && (
+                            <div>
                                 <h2 style={{ color: colors.darkBlue }}>Phase 1: Becoming a Disciple</h2>
                                 {weeks.filter(w => w.phase === 1).map(w => (
                                     <div key={w.week} onClick={() => {setCurrentWeekNum(w.week); setActiveTab('today');}}
@@ -581,10 +579,14 @@ export default function App() {
                                                 {resource.title}
                                             </div>
                                             <div style={{ fontSize: '0.85rem', opacity: 0.6 }}>{resource.desc}</div>
-                                        
+                                        </div>
+                                        <ChevronRight size={20} style={{ color: colors.darkBlue, opacity: 0.3 }} />
+                                    </div>
+                                ))}
                             </div>
-			))}
-
+                        )}
+                    </>
+                )}
             </main>
 
             <nav style={{ position: 'fixed', bottom: 0, left: 0, right: 0, height: '70px', backgroundColor: 'white',
