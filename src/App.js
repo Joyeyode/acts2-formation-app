@@ -552,10 +552,22 @@ export default function App() {
                                     Tools and guides for your discipleship journey
                                 </p>
                                 {resources.map((resource, idx) => (
-                                    <div key={idx} onClick={() => setActiveResource(resource.key)} style={{
-                                        background: 'white', padding: '15px', borderRadius: '12px', marginBottom: '12px',
-                                        cursor: 'pointer', borderLeft: `5px solid ${colors.teal}`, display: 'flex',
-                                        alignItems: 'center', gap: '15px'
+    <div key={idx} onClick={() => setActiveResource(resource.key)} style={{
+        background: 'white', padding: '20px', borderRadius: '12px', marginBottom: '12px',
+        cursor: 'pointer', borderLeft: `5px solid ${colors.teal}`, textAlign: 'center'
+    }}>
+        <div style={{ width: '48px', height: '48px', borderRadius: '12px',
+            background: colors.lightTeal, display: 'inline-flex', alignItems: 'center', 
+            justifyContent: 'center', marginBottom: '12px'
+        }}>
+            <resource.icon size={24} color={colors.teal} />
+        </div>
+        <div style={{ fontWeight: 'bold', color: colors.darkBlue, marginBottom: '4px' }}>
+            {resource.title}
+        </div>
+        <div style={{ fontSize: '0.85rem', opacity: 0.6 }}>{resource.desc}</div>
+    </div>
+))}
                                     }}>
                                         <div style={{ width: '48px', height: '48px', borderRadius: '12px',
                                             background: colors.lightTeal, display: 'flex', alignItems: 'center', justifyContent: 'center'
