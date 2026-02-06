@@ -326,8 +326,7 @@ export default function App() {
                                     Tools and guides for your discipleship journey
                                 </p>
                                 {resources.map((resource, idx) => (
-                                    onClick={() => setActiveResource(resource.key)}
-}} style={{
+                                    <div key={idx} onClick={() => setActiveResource(resource.key)} style={{
                                         background: 'white', padding: '15px', borderRadius: '12px', marginBottom: '12px',
                                         cursor: 'pointer', borderLeft: `5px solid ${colors.teal}`, display: 'flex',
                                         alignItems: 'center', gap: '15px'
