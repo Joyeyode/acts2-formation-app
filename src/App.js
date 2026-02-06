@@ -115,6 +115,7 @@ const resources = [
 ];
 
 // RESOURCE DETAIL COMPONENT
+// COMPLETE ResourceDetailView - handles ALL content types
 const ResourceDetailView = ({ resourceKey, onBack }) => {
     const resource = resourceContent[resourceKey];
     const colors = { teal: '#1B9AAA', darkBlue: '#2C3E50', lightTeal: '#E8F4F5', white: '#FFFFFF' };
@@ -123,6 +124,7 @@ const ResourceDetailView = ({ resourceKey, onBack }) => {
 
     return (
         <div style={{ padding: '20px', paddingBottom: '100px', overflowY: 'auto', maxHeight: 'calc(100vh - 160px)' }}>
+            {/* Back Button */}
             <button onClick={onBack} style={{ 
                 display: 'flex', alignItems: 'center', gap: '8px', background: 'none', 
                 border: 'none', color: colors.teal, fontSize: '16px', fontWeight: '600', 
@@ -131,7 +133,7 @@ const ResourceDetailView = ({ resourceKey, onBack }) => {
                 <ArrowLeft size={20} /> Back to Resources
             </button>
 
-            {/* Header Card */}
+            {/* Header */}
             <div style={{ background: `linear-gradient(135deg, ${colors.teal} 0%, ${colors.darkBlue} 100%)`,
                 color: colors.white, padding: '32px 24px', borderRadius: '16px', marginBottom: '24px' }}>
                 <h1 style={{ fontSize: '28px', fontWeight: 'bold', marginBottom: '8px', margin: 0 }}>
@@ -140,7 +142,7 @@ const ResourceDetailView = ({ resourceKey, onBack }) => {
                 <p style={{ fontSize: '16px', opacity: 0.9, margin: 0 }}>{resource.subtitle}</p>
             </div>
 
-            {/* Intro Text */}
+            {/* Intro */}
             {resource.intro && (
                 <div style={{ background: colors.lightTeal, padding: '20px', borderRadius: '12px',
                     marginBottom: '24px', borderLeft: `4px solid ${colors.teal}` }}>
@@ -148,7 +150,7 @@ const ResourceDetailView = ({ resourceKey, onBack }) => {
                 </div>
             )}
 
-            {/* 1. STEPS SECTION */}
+            {/* STEPS (OIAP) */}
             {resource.steps && resource.steps.map((step, idx) => (
                 <div key={idx} style={{ background: 'white', border: `2px solid ${colors.teal}`,
                     borderRadius: '16px', padding: '24px', marginBottom: '20px' }}>
@@ -171,30 +173,164 @@ const ResourceDetailView = ({ resourceKey, onBack }) => {
                 </div>
             ))}
 
-            {/* 2. QUESTION TYPES SECTION */}
-            {resource.questionTypes && (
-                <div style={{ marginTop: '32px' }}>
-                    <h3 style={{ color: colors.darkBlue, fontSize: '20px', fontWeight: 'bold', marginBottom: '16px' }}>
-                        Discussion Starters
+            {/* MOVEMENTS (Shabbat) */}
+            {resource.movements && resource.movements.map((movement, idx) => (
+                <div key={idx} style={{ background: 'white', border: `2px solid ${colors.teal}`,
+                    borderRadius: '16px', padding: '24px', marginBottom: '20px' }}>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '8px' }}>
+                        <span style={{ fontSize: '32px' }}>{movement.icon}</span>
+                        <h3 style={{ fontSize: '20px', fontWeight: 'bold', color: colors.teal, margin: 0 }}>
+                            {movement.movement}
+                        </h3>
+                    </div>
+                    <p style={{ fontSize: '14px', fontStyle: 'italic', color: colors.darkBlue, marginBottom: '12px' }}>
+                        {movement.subtitle}
+                    </p>
+                    <p style={{ color: colors.darkBlue, lineHeight: '1.6', marginBottom: '16px' }}>
+                        {movement.description}
+                    </p>
+                    <div style={{ background: colors.lightTeal, padding: '16px', borderRadius: '8px' }}>
+                        <h4 style={{ fontSize: '14px', fontWeight: 'bold', color: colors.teal, marginBottom: '12px', marginTop: 0 }}>
+                            PRACTICES:
+                        </h4>
+                        <ul style={{ paddingLeft: '20px', margin: 0 }}>
+                            {movement.practices.map((practice, pIdx) => (
+                                <li key={pIdx} style={{ color: colors.darkBlue, marginBottom: '8px', lineHeight: '1.5' }}>
+                                    {practice}
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
+                </div>
+            ))}
+
+            {/* SECTIONS (Chavruta - general sections with heading and content/steps) */}
+            {resource.sections && resource.sections.map((section, idx) => (
+                <div key={idx} style={{ marginBottom: '24px' }}>
+                    <h3 style={{ color: colors.darkBlue, fontSize: '20px', fontWeight: 'bold', marginBottom: '12px' }}>
+                        {section.heading}
                     </h3>
-                    {resource.questionTypes.map((qt, idx) => (
-                        <div key={idx} style={{ background: 'white', padding: '16px', borderRadius: '12px', marginBottom: '12px', border: '1px solid #e2e8f0' }}>
-                            <div style={{ fontWeight: 'bold', color: colors.teal, display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '8px' }}>
-                                <span>{qt.icon}</span> {qt.type}
+                    {section.content && (
+                        <p style={{ color: colors.darkBlue, lineHeight: '1.6', marginBottom: '16px' }}>
+                            {section.content}
+                        </p>
+                    )}
+                    {section.steps && section.steps.map((step, sIdx) => (
+                        <div key={sIdx} style={{ background: 'white', padding: '16px', borderRadius: '12px', 
+                            marginBottom: '12px', border: '1px solid #e2e8f0' }}>
+                            <div style={{ fontWeight: 'bold', color: colors.teal, marginBottom: '6px' }}>
+                                {step.title}
                             </div>
-                            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px' }}>
-                                {qt.examples.map((ex, eIdx) => (
-                                    <div key={eIdx} style={{ fontSize: '13px', background: '#f1f5f9', padding: '6px 12px', borderRadius: '8px', color: colors.darkBlue }}>
-                                        {ex}
-                                    </div>
-                                ))}
+                            <div style={{ fontSize: '14px', color: colors.darkBlue, opacity: 0.8, lineHeight: '1.5' }}>
+                                {step.description}
+                            </div>
+                        </div>
+                    ))}
+                </div>
+            ))}
+
+            {/* EXAMPLES (Hebrew) */}
+            {resource.examples && (
+                <div style={{ marginBottom: '32px' }}>
+                    <h2 style={{ fontSize: '22px', fontWeight: 'bold', color: colors.darkBlue, marginBottom: '16px' }}>
+                        Example Word Studies
+                    </h2>
+                    {resource.examples.map((example, idx) => (
+                        <div key={idx} style={{ background: 'white', border: `1px solid ${colors.lightTeal}`,
+                            borderRadius: '12px', padding: '20px', marginBottom: '16px' }}>
+                            <h3 style={{ fontSize: '20px', fontWeight: 'bold', color: colors.teal, marginBottom: '4px', marginTop: 0 }}>
+                                {example.word}
+                            </h3>
+                            <div style={{ fontSize: '14px', color: colors.darkBlue, opacity: 0.7, marginBottom: '12px' }}>
+                                {example.language} • "{example.englishTranslation}"
+                            </div>
+                            <p style={{ color: colors.darkBlue, lineHeight: '1.6', marginBottom: '12px' }}>
+                                <strong>Full Meaning:</strong> {example.fullMeaning}
+                            </p>
+                            <div style={{ background: colors.lightTeal, padding: '12px', borderRadius: '8px', marginTop: '12px' }}>
+                                <p style={{ fontSize: '14px', fontWeight: '600', color: colors.teal, marginBottom: '4px', marginTop: 0 }}>
+                                    💡 INSIGHT:
+                                </p>
+                                <p style={{ fontSize: '14px', color: colors.darkBlue, lineHeight: '1.5', margin: 0 }}>
+                                    {example.insight}
+                                </p>
                             </div>
                         </div>
                     ))}
                 </div>
             )}
 
-            {/* 3. GUIDELINES SECTION */}
+            {/* CATEGORIES (Disciplines & Reflection) */}
+            {resource.categories && resource.categories.map((category, idx) => (
+                <div key={idx} style={{ marginBottom: '32px' }}>
+                    <h2 style={{ fontSize: '22px', fontWeight: 'bold', color: colors.darkBlue, marginBottom: '8px' }}>
+                        {category.type || category.category}
+                    </h2>
+                    {category.subtitle && (
+                        <p style={{ fontSize: '14px', fontStyle: 'italic', color: colors.darkBlue, opacity: 0.7, marginBottom: '16px' }}>
+                            {category.subtitle}
+                        </p>
+                    )}
+                    {category.practices && category.practices.map((practice, pIdx) => (
+                        <div key={pIdx} style={{ background: 'white', border: `1px solid ${colors.lightTeal}`,
+                            borderRadius: '12px', padding: '20px', marginBottom: '16px' }}>
+                            <h3 style={{ fontSize: '18px', fontWeight: 'bold', color: colors.teal, marginBottom: '8px', marginTop: 0 }}>
+                                {practice.name}
+                            </h3>
+                            <p style={{ color: colors.darkBlue, lineHeight: '1.6', marginBottom: '12px' }}>
+                                {practice.description}
+                            </p>
+                            <div style={{ background: colors.lightTeal, padding: '12px', borderRadius: '8px' }}>
+                                <p style={{ fontSize: '14px', fontWeight: '600', color: colors.teal, marginBottom: '4px', marginTop: 0 }}>
+                                    Why It Matters:
+                                </p>
+                                <p style={{ fontSize: '14px', color: colors.darkBlue, lineHeight: '1.5', margin: 0 }}>
+                                    {practice.why}
+                                </p>
+                            </div>
+                        </div>
+                    ))}
+                    {category.questions && (
+                        <div style={{ background: colors.lightTeal, padding: '20px', borderRadius: '12px', marginTop: '16px' }}>
+                            <ul style={{ paddingLeft: '20px', margin: 0 }}>
+                                {category.questions.map((question, qIdx) => (
+                                    <li key={qIdx} style={{ color: colors.darkBlue, marginBottom: '12px', lineHeight: '1.5', fontSize: '15px' }}>
+                                        {question}
+                                    </li>
+                                ))}
+                            </ul>
+                        </div>
+                    )}
+                </div>
+            ))}
+
+            {/* QUESTION TYPES (Chavruta) */}
+            {resource.questionTypes && (
+                <div style={{ marginTop: '32px' }}>
+                    <h3 style={{ color: colors.darkBlue, fontSize: '20px', fontWeight: 'bold', marginBottom: '16px' }}>
+                        Discussion Starters
+                    </h3>
+                    {resource.questionTypes.map((qt, idx) => (
+                        <div key={idx} style={{ background: 'white', padding: '16px', borderRadius: '12px', 
+                            marginBottom: '12px', border: '1px solid #e2e8f0' }}>
+                            <div style={{ fontWeight: 'bold', color: colors.teal, display: 'flex', 
+                                alignItems: 'center', gap: '8px', marginBottom: '8px' }}>
+                                <span>{qt.icon}</span> {qt.type}
+                            </div>
+                            <ul style={{ paddingLeft: '20px', margin: 0, listStyleType: 'none' }}>
+                                {qt.examples.map((ex, eIdx) => (
+                                    <li key={eIdx} style={{ fontSize: '14px', color: colors.darkBlue, 
+                                        marginBottom: '6px', paddingLeft: '0' }}>
+                                        • {ex}
+                                    </li>
+                                ))}
+                            </ul>
+                        </div>
+                    ))}
+                </div>
+            )}
+
+            {/* GUIDELINES (Chavruta) */}
             {resource.guidelines && (
                 <div style={{ marginTop: '32px' }}>
                     <h3 style={{ color: colors.darkBlue, fontSize: '20px', fontWeight: 'bold', marginBottom: '16px' }}>
@@ -202,7 +338,8 @@ const ResourceDetailView = ({ resourceKey, onBack }) => {
                     </h3>
                     <div style={{ display: 'grid', gap: '12px' }}>
                         {resource.guidelines.map((guide, idx) => (
-                            <div key={idx} style={{ background: 'white', padding: '16px', borderRadius: '12px', border: '1px solid #e2e8f0' }}>
+                            <div key={idx} style={{ background: 'white', padding: '16px', borderRadius: '12px', 
+                                border: '1px solid #e2e8f0' }}>
                                 <div style={{ fontWeight: 'bold', color: colors.teal, marginBottom: '4px' }}>
                                     {guide.title}
                                 </div>
@@ -215,10 +352,51 @@ const ResourceDetailView = ({ resourceKey, onBack }) => {
                 </div>
             )}
 
-            {/* 4. SCRIPTURE SECTION */}
+            {/* SCHEDULE (Shabbat) */}
+            {resource.schedule && (
+                <div style={{ marginTop: '32px', background: 'white', padding: '20px', borderRadius: '16px', 
+                    border: '1px solid #e2e8f0' }}>
+                    <h3 style={{ color: colors.teal, fontSize: '18px', fontWeight: 'bold', marginBottom: '16px', marginTop: 0 }}>
+                        {resource.schedule.title}
+                    </h3>
+                    {resource.schedule.timeline.map((item, idx) => (
+                        <div key={idx} style={{ display: 'flex', gap: '12px', padding: '8px 0', 
+                            borderBottom: idx !== resource.schedule.timeline.length - 1 ? '1px solid #f1f5f9' : 'none' }}>
+                            <span style={{ fontWeight: 'bold', minWidth: '80px', color: colors.teal, fontSize: '14px' }}>
+                                {item.time}
+                            </span>
+                            <span style={{ color: colors.darkBlue, fontSize: '14px' }}>{item.activity}</span>
+                        </div>
+                    ))}
+                </div>
+            )}
+
+            {/* FAQ (Shabbat) */}
+            {resource.faqs && (
+                <div style={{ marginTop: '32px' }}>
+                    <h3 style={{ color: colors.darkBlue, fontSize: '18px', fontWeight: 'bold', marginBottom: '16px' }}>
+                        Common Questions
+                    </h3>
+                    {resource.faqs.map((faq, idx) => (
+                        <div key={idx} style={{ marginBottom: '16px' }}>
+                            <div style={{ fontWeight: 'bold', color: colors.teal, fontSize: '14px', marginBottom: '4px' }}>
+                                Q: {faq.question}
+                            </div>
+                            <div style={{ color: colors.darkBlue, opacity: 0.8, fontSize: '14px', lineHeight: '1.4' }}>
+                                {faq.answer}
+                            </div>
+                        </div>
+                    ))}
+                </div>
+            )}
+
+            {/* SCRIPTURE FOUNDATION */}
             {resource.scripture && (
                 <div style={{ background: `linear-gradient(135deg, ${colors.teal} 0%, ${colors.darkBlue} 100%)`,
                     color: colors.white, padding: '24px', borderRadius: '16px', marginTop: '32px' }}>
+                    <div style={{ fontSize: '12px', fontWeight: '600', marginBottom: '12px', opacity: 0.9 }}>
+                        FOUNDATION SCRIPTURE
+                    </div>
                     <p style={{ fontSize: '16px', lineHeight: '1.6', marginBottom: '12px', fontStyle: 'italic' }}>
                         "{resource.scripture.text}"
                     </p>
@@ -230,34 +408,6 @@ const ResourceDetailView = ({ resourceKey, onBack }) => {
         </div>
     );
 };
-
-{/* 5. SCHEDULE SECTION */}
-            {resource.schedule && (
-                <div style={{ marginTop: '32px', background: 'white', padding: '20px', borderRadius: '16px', border: '1px solid #e2e8f0' }}>
-                    <h3 style={{ color: colors.teal, fontSize: '18px', fontWeight: 'bold', marginBottom: '16px' }}>
-                        {resource.schedule.title}
-                    </h3>
-                    {resource.schedule.timeline.map((item, idx) => (
-                        <div key={idx} style={{ display: 'flex', gap: '12px', padding: '8px 0', borderBottom: idx !== resource.schedule.timeline.length - 1 ? '1px solid #f1f5f9' : 'none' }}>
-                            <span style={{ fontWeight: 'bold', minWidth: '80px', color: colors.teal, fontSize: '14px' }}>{item.time}</span>
-                            <span style={{ color: colors.darkBlue, fontSize: '14px' }}>{item.activity}</span>
-                        </div>
-                    ))}
-                </div>
-            )}
-
-            {/* 6. FAQ SECTION */}
-            {resource.faqs && (
-                <div style={{ marginTop: '32px' }}>
-                    <h3 style={{ color: colors.darkBlue, fontSize: '18px', fontWeight: 'bold', marginBottom: '16px' }}>Common Questions</h3>
-                    {resource.faqs.map((faq, idx) => (
-                        <div key={idx} style={{ marginBottom: '16px' }}>
-                            <div style={{ fontWeight: 'bold', color: colors.teal, fontSize: '14px', marginBottom: '4px' }}>Q: {faq.question}</div>
-                            <div style={{ color: colors.darkBlue, opacity: 0.8, fontSize: '14px', lineHeight: '1.4' }}>{faq.answer}</div>
-                        </div>
-                    ))}
-                </div>
-            )}
 
 // MAIN APP COMPONENT
 export default function App() {
