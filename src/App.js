@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Calendar, Check, BookOpen, Menu, Users, Star, ChevronRight, Heart, ArrowLeft } from 'lucide-react';
+import { Calendar, Check, BookOpen, Users, Star, ChevronRight, Heart, ArrowLeft } from 'lucide-react';
 import { OIAPContent } from './resources/OIAPContent';
 import { ChavrutaContent } from './resources/ChavrutaContent';
 import { ShabbatContent } from './resources/ShabbatContent';
