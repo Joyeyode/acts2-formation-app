@@ -512,16 +512,20 @@ export default function App() {
                         fontWeight: 'bold', 
                         color: colors.darkBlue,
                         textDecoration: completedTasks[`${currentWeekNum}-${currentDay}-${task.id}`] ? 'line-through' : 'none'
-                    }}>{task.task}</div>
-                    <div style={{ fontSize: '0.8rem', opacity: 0.6 }}>{task.time} • {task.pillar}</div>
-                </div>
-            </div> // Closes the task row container
+                    }}>
+                        {task.task}
+                    </div>
+                    <div style={{ fontSize: '0.8rem', opacity: 0.6 }}>
+                        {task.time} • {task.pillar}
+                    </div>
+                </div> {/* <--- Fix 1: Closes the text container */}
+            </div> {/* <--- Fix 2: Closes the task row container */}
         ))}
-    </div> // Closes the tasks list container
+    </div> {/* <--- Fix 3: Closes the tasks list container */}
 )}
 
 {activeTab === 'progress' && (
-    <div style={{ padding: '20px' }}> {/* Ensure this div has its content and a closing tag below */}
+    <div style={{ padding: '20px' }}>
                                 <h2 style={{ color: colors.darkBlue }}>Phase 1: Becoming a Disciple</h2>
                                 {weeks.filter(w => w.phase === 1).map(w => (
                                     <div key={w.week} onClick={() => {setCurrentWeekNum(w.week); setActiveTab('today');}}
