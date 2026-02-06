@@ -418,7 +418,10 @@ export default function App() {
   });
 
   const [currentDay, setCurrentDay] = useState('monday');
-  const [activeTab, setActiveTab] = useState('today'); // ONLY DECLARE THIS ONCE
+  const [activeTab, setActiveTab] = useState(() => {
+    const saved = localStorage.getItem('acts2_activeTab');
+    return saved || 'today';
+});
   const [activeResource, setActiveResource] = useState(null);
   const [completedTasks, setCompletedTasks] = useState(() => {
     const saved = localStorage.getItem('acts2_completedTasks');
@@ -426,9 +429,10 @@ export default function App() {
   });
 
     useEffect(() => {
-        localStorage.setItem('acts2_currentWeek', currentWeekNum.toString());
-        localStorage.setItem('acts2_completedTasks', JSON.stringify(completedTasks));
-    }, [currentWeekNum, completedTasks]);
+    localStorage.setItem('acts2_currentWeek', currentWeekNum.toString());
+    localStorage.setItem('acts2_completedTasks', JSON.stringify(completedTasks));
+    localStorage.setItem('acts2_activeTab', activeTab);
+}, [currentWeekNum, completedTasks, activeTab]);
 
     const colors = { teal: '#1B9AAA', darkBlue: '#2C3E50', lightTeal: '#E8F4F5', white: '#FFFFFF' };
     const currentWeekData = weeks.find(w => w.week === currentWeekNum) || weeks[0];
