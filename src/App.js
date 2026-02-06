@@ -417,7 +417,11 @@ export default function App() {
     return saved ? parseInt(saved) : 1;
   });
 
-  const [currentDay, setCurrentDay] = useState('monday');
+  const [currentDay, setCurrentDay] = useState(() => {
+    const days = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday'];
+    const today = new Date().getDay(); // 0 = Sunday, 1 = Monday, etc.
+    return days[today];
+});
   const [activeTab, setActiveTab] = useState(() => {
     const saved = localStorage.getItem('acts2_activeTab');
     return saved || 'today';
@@ -459,15 +463,10 @@ export default function App() {
             position: 'relative', paddingBottom: '80px', fontFamily: 'sans-serif' }}>
             
             <header style={{ backgroundColor: colors.teal, color: 'white', padding: '20px', 
-                borderBottomLeftRadius: '20px', borderBottomRightRadius: '20px' }}>
-                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                    <div>
-                        <h1 style={{ margin: 0, fontSize: '1.2rem' }}>Acts 2 Formation</h1>
-                        <p style={{ margin: 0, fontSize: '0.8rem', opacity: 0.8 }}>Center of Life Church</p>
-                    </div>
-                    <Menu size={24} />
-                </div>
-            </header>
+    borderBottomLeftRadius: '20px', borderBottomRightRadius: '20px', textAlign: 'center' }}>
+    <h1 style={{ margin: 0, fontSize: '1.2rem' }}>Acts 2 Formation</h1>
+    <p style={{ margin: 0, fontSize: '0.8rem', opacity: 0.8 }}>Center of Life Church</p>
+</header>
 
             <main style={{ padding: '20px' }}>
                 {activeResource ? (
