@@ -579,14 +579,10 @@ export default function App() {
                                                 {resource.title}
                                             </div>
                                             <div style={{ fontSize: '0.85rem', opacity: 0.6 }}>{resource.desc}</div>
-                                        </div>
-                                        <ChevronRight size={20} style={{ color: colors.darkBlue, opacity: 0.3 }} />
-                                    </div>
-                                ))}
+                                        
                             </div>
-                        )}
-                    </>
-                )}
+			))}
+
             </main>
 
             <nav style={{ position: 'fixed', bottom: 0, left: 0, right: 0, height: '70px', backgroundColor: 'white',
