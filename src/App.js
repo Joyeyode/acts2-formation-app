@@ -131,6 +131,7 @@ const ResourceDetailView = ({ resourceKey, onBack }) => {
                 <ArrowLeft size={20} /> Back to Resources
             </button>
 
+            {/* Header Card */}
             <div style={{ background: `linear-gradient(135deg, ${colors.teal} 0%, ${colors.darkBlue} 100%)`,
                 color: colors.white, padding: '32px 24px', borderRadius: '16px', marginBottom: '24px' }}>
                 <h1 style={{ fontSize: '28px', fontWeight: 'bold', marginBottom: '8px', margin: 0 }}>
@@ -139,6 +140,7 @@ const ResourceDetailView = ({ resourceKey, onBack }) => {
                 <p style={{ fontSize: '16px', opacity: 0.9, margin: 0 }}>{resource.subtitle}</p>
             </div>
 
+            {/* Intro Text */}
             {resource.intro && (
                 <div style={{ background: colors.lightTeal, padding: '20px', borderRadius: '12px',
                     marginBottom: '24px', borderLeft: `4px solid ${colors.teal}` }}>
@@ -146,6 +148,7 @@ const ResourceDetailView = ({ resourceKey, onBack }) => {
                 </div>
             )}
 
+            {/* 1. STEPS SECTION */}
             {resource.steps && resource.steps.map((step, idx) => (
                 <div key={idx} style={{ background: 'white', border: `2px solid ${colors.teal}`,
                     borderRadius: '16px', padding: '24px', marginBottom: '20px' }}>
@@ -168,12 +171,54 @@ const ResourceDetailView = ({ resourceKey, onBack }) => {
                 </div>
             ))}
 
+            {/* 2. QUESTION TYPES SECTION */}
+            {resource.questionTypes && (
+                <div style={{ marginTop: '32px' }}>
+                    <h3 style={{ color: colors.darkBlue, fontSize: '20px', fontWeight: 'bold', marginBottom: '16px' }}>
+                        Discussion Starters
+                    </h3>
+                    {resource.questionTypes.map((qt, idx) => (
+                        <div key={idx} style={{ background: 'white', padding: '16px', borderRadius: '12px', marginBottom: '12px', border: '1px solid #e2e8f0' }}>
+                            <div style={{ fontWeight: 'bold', color: colors.teal, display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '8px' }}>
+                                <span>{qt.icon}</span> {qt.type}
+                            </div>
+                            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px' }}>
+                                {qt.examples.map((ex, eIdx) => (
+                                    <div key={eIdx} style={{ fontSize: '13px', background: '#f1f5f9', padding: '6px 12px', borderRadius: '8px', color: colors.darkBlue }}>
+                                        {ex}
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+                    ))}
+                </div>
+            )}
+
+            {/* 3. GUIDELINES SECTION */}
+            {resource.guidelines && (
+                <div style={{ marginTop: '32px' }}>
+                    <h3 style={{ color: colors.darkBlue, fontSize: '20px', fontWeight: 'bold', marginBottom: '16px' }}>
+                        Guidelines for Success
+                    </h3>
+                    <div style={{ display: 'grid', gap: '12px' }}>
+                        {resource.guidelines.map((guide, idx) => (
+                            <div key={idx} style={{ background: 'white', padding: '16px', borderRadius: '12px', border: '1px solid #e2e8f0' }}>
+                                <div style={{ fontWeight: 'bold', color: colors.teal, marginBottom: '4px' }}>
+                                    {guide.title}
+                                </div>
+                                <div style={{ fontSize: '14px', color: colors.darkBlue, opacity: 0.8 }}>
+                                    {guide.description}
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            )}
+
+            {/* 4. SCRIPTURE SECTION */}
             {resource.scripture && (
                 <div style={{ background: `linear-gradient(135deg, ${colors.teal} 0%, ${colors.darkBlue} 100%)`,
                     color: colors.white, padding: '24px', borderRadius: '16px', marginTop: '32px' }}>
-                    <div style={{ fontSize: '12px', fontWeight: '600', marginBottom: '12px', opacity: 0.9 }}>
-                        FOUNDATION SCRIPTURE
-                    </div>
                     <p style={{ fontSize: '16px', lineHeight: '1.6', marginBottom: '12px', fontStyle: 'italic' }}>
                         "{resource.scripture.text}"
                     </p>
