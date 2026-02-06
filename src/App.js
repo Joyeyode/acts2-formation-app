@@ -270,7 +270,6 @@ export default function App() {
   const [currentDay, setCurrentDay] = useState('monday');
   const [activeTab, setActiveTab] = useState('today'); // ONLY DECLARE THIS ONCE
   const [activeResource, setActiveResource] = useState(null);
-  
   const [completedTasks, setCompletedTasks] = useState(() => {
     const saved = localStorage.getItem('acts2_completedTasks');
     return saved ? JSON.parse(saved) : {};
