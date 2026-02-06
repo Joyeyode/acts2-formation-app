@@ -231,6 +231,34 @@ const ResourceDetailView = ({ resourceKey, onBack }) => {
     );
 };
 
+{/* 5. SCHEDULE SECTION */}
+            {resource.schedule && (
+                <div style={{ marginTop: '32px', background: 'white', padding: '20px', borderRadius: '16px', border: '1px solid #e2e8f0' }}>
+                    <h3 style={{ color: colors.teal, fontSize: '18px', fontWeight: 'bold', marginBottom: '16px' }}>
+                        {resource.schedule.title}
+                    </h3>
+                    {resource.schedule.timeline.map((item, idx) => (
+                        <div key={idx} style={{ display: 'flex', gap: '12px', padding: '8px 0', borderBottom: idx !== resource.schedule.timeline.length - 1 ? '1px solid #f1f5f9' : 'none' }}>
+                            <span style={{ fontWeight: 'bold', minWidth: '80px', color: colors.teal, fontSize: '14px' }}>{item.time}</span>
+                            <span style={{ color: colors.darkBlue, fontSize: '14px' }}>{item.activity}</span>
+                        </div>
+                    ))}
+                </div>
+            )}
+
+            {/* 6. FAQ SECTION */}
+            {resource.faqs && (
+                <div style={{ marginTop: '32px' }}>
+                    <h3 style={{ color: colors.darkBlue, fontSize: '18px', fontWeight: 'bold', marginBottom: '16px' }}>Common Questions</h3>
+                    {resource.faqs.map((faq, idx) => (
+                        <div key={idx} style={{ marginBottom: '16px' }}>
+                            <div style={{ fontWeight: 'bold', color: colors.teal, fontSize: '14px', marginBottom: '4px' }}>Q: {faq.question}</div>
+                            <div style={{ color: colors.darkBlue, opacity: 0.8, fontSize: '14px', lineHeight: '1.4' }}>{faq.answer}</div>
+                        </div>
+                    ))}
+                </div>
+            )}
+
 // MAIN APP COMPONENT
 export default function App() {
     const [activeTab, setActiveTab] = useState('today');
