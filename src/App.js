@@ -261,19 +261,20 @@ const ResourceDetailView = ({ resourceKey, onBack }) => {
 
 // MAIN APP COMPONENT
 export default function App() {
-    const [activeTab, setActiveTab] = useState('today');
-    const [activeResource, setActiveResource] = useState(null);
-    const [currentDay, setCurrentDay] = useState('monday');
-    
-    const [currentWeekNum, setCurrentWeekNum] = useState(() => {
-        const saved = localStorage.getItem('acts2_currentWeek');
-        return saved ? parseInt(saved) : 1;
-    });
-    
-    const [completedTasks, setCompletedTasks] = useState(() => {
-        const saved = localStorage.getItem('acts2_completedTasks');
-        return saved ? JSON.parse(saved) : {};
-    });
+  // Initialize state
+  const [currentWeekNum, setCurrentWeekNum] = useState(() => {
+    const saved = localStorage.getItem('acts2_currentWeek');
+    return saved ? parseInt(saved) : 1;
+  });
+
+  const [currentDay, setCurrentDay] = useState('monday');
+  const [activeTab, setActiveTab] = useState('today'); // ONLY DECLARE THIS ONCE
+  const [activeResource, setActiveResource] = useState(null);
+  
+  const [completedTasks, setCompletedTasks] = useState(() => {
+    const saved = localStorage.getItem('acts2_completedTasks');
+    return saved ? JSON.parse(saved) : {};
+  });
 
     useEffect(() => {
         localStorage.setItem('acts2_currentWeek', currentWeekNum.toString());
