@@ -518,10 +518,10 @@ export default function App() {
                     <div style={{ fontSize: '0.8rem', opacity: 0.6 }}>
                         {task.time} • {task.pillar}
                     </div>
-                </div> {/* <--- Fix 1: Closes the text container */}
-            </div> {/* <--- Fix 2: Closes the task row container */}
-        ))}
-    </div> {/* <--- Fix 3: Closes the tasks list container */}
+                  </div>
+		</div>
+    		))}
+   		</div>
 )}
 
 {activeTab === 'progress' && (
@@ -557,38 +557,27 @@ export default function App() {
                                 <p style={{ fontSize: '0.9rem', color: colors.darkBlue, opacity: 0.7, marginBottom: '20px' }}>
                                     Tools and guides for your discipleship journey
                                 </p>
-                                {resources.map((resource, idx) => (
-    <div key={idx} onClick={() => setActiveResource(resource.key)} style={{
-        background: 'white', padding: '20px', borderRadius: '12px', marginBottom: '12px',
-        cursor: 'pointer', borderLeft: `5px solid ${colors.teal}`, textAlign: 'center'
-    }}>
-        <div style={{ width: '48px', height: '48px', borderRadius: '12px',
-            background: colors.lightTeal, display: 'inline-flex', alignItems: 'center', 
-            justifyContent: 'center', marginBottom: '12px'
-        }}>
-            <resource.icon size={24} color={colors.teal} />
-        </div>
-        <div style={{ fontWeight: 'bold', color: colors.darkBlue, marginBottom: '4px' }}>
-            {resource.title}
-        </div>
-        <div style={{ fontSize: '0.85rem', opacity: 0.6 }}>{resource.desc}</div>
-    </div>
-))}
+                               {resources.map((resource, idx) => (
+                                    <div key={idx} onClick={() => setActiveResource(resource.key)} style={{
+                                        background: 'white', padding: '20px', borderRadius: '12px', marginBottom: '12px',
+                                        cursor: 'pointer', borderLeft: `5px solid ${colors.teal}`, textAlign: 'center'
                                     }}>
                                         <div style={{ width: '48px', height: '48px', borderRadius: '12px',
-                                            background: colors.lightTeal, display: 'flex', alignItems: 'center', justifyContent: 'center'
+                                            background: colors.lightTeal, display: 'inline-flex', alignItems: 'center', 
+                                            justifyContent: 'center', marginBottom: '12px'
                                         }}>
                                             <resource.icon size={24} color={colors.teal} />
                                         </div>
-                                        <div style={{ flex: 1 }}>
-                                            <div style={{ fontWeight: 'bold', color: colors.darkBlue, marginBottom: '4px' }}>
-                                                {resource.title}
-                                            </div>
-                                            <div style={{ fontSize: '0.85rem', opacity: 0.6 }}>{resource.desc}</div>
-                                        
+                                        <div style={{ fontWeight: 'bold', color: colors.darkBlue, marginBottom: '4px' }}>
+                                            {resource.title}
+                                        </div>
+                                        <div style={{ fontSize: '0.85rem', opacity: 0.6 }}>{resource.desc}</div>
+                                    </div>
+                                ))}
                             </div>
-			))}
-
+                        )}
+                    </>
+                )}
             </main>
 
             <nav style={{ position: 'fixed', bottom: 0, left: 0, right: 0, height: '70px', backgroundColor: 'white',
