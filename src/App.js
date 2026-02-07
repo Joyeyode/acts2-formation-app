@@ -469,8 +469,8 @@ export default function App() {
     alt="Center of Life Church" 
     style={{ width: '80%', maxWidth: '400px', height: 'auto', marginBottom: '12px' }}
 />
-    <h1 style={{ margin: 0, fontSize: '1.2rem' }}>Acts 2 Formation</h1>
-    <p style={{ margin: 0, fontSize: '0.8rem', opacity: 0.8 }}>Center of Life Church</p>
+    <h1 style={{ margin: 0, fontSize: '1.8rem' }}>Acts 2 Formation</h1>
+    <p style={{ margin: 0, fontSize: '1.1rem', opacity: 0.8 }}>Center of Life Church</p>
 </header>
 
             <main style={{ padding: '20px' }}>
