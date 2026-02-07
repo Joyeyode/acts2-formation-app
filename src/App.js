@@ -464,6 +464,11 @@ export default function App() {
             
             <header style={{ backgroundColor: colors.teal, color: 'white', padding: '20px', 
     borderBottomLeftRadius: '20px', borderBottomRightRadius: '20px', textAlign: 'center' }}>
+    <img 
+        src="/images/col-logo.png" 
+        alt="Center of Life Church" 
+        style={{ height: '60px', marginBottom: '12px' }}
+    />
     <h1 style={{ margin: 0, fontSize: '1.2rem' }}>Acts 2 Formation</h1>
     <p style={{ margin: 0, fontSize: '0.8rem', opacity: 0.8 }}>Center of Life Church</p>
 </header>
