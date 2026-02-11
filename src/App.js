@@ -657,6 +657,7 @@ const ShabbatReminder = ({ currentDay, colors }) => {
 };
 
 // PILLAR BADGE COMPONENT
+// eslint-disable-next-line no-unused-vars
 const PillarBadge = ({ pillars, colors }) => {
     if (!pillars) return null;
     
@@ -817,6 +818,7 @@ export default function App() {
     const currentWeekData = weeks.find(w => w.week === currentWeekNum) || weeks[0];
     const dailyTasks = getDailyTasks(currentWeekNum);
 
+    // eslint-disable-next-line no-unused-vars
     const getWeekProgress = () => {
         const total = Object.values(dailyTasks).flat().length;
         const completed = Object.keys(completedTasks).filter(k => k.startsWith(`${currentWeekNum}-`)).length;
