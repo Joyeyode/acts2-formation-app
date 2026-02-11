@@ -719,18 +719,60 @@ const PhaseBanner = ({ phase, title, description, colors }) => {
     );
 };
 
+// PROGRAM START DATE - February 11, 2026 (Week 1, Day 3 = Tuesday)
+const PROGRAM_START_DATE = new Date('2026-02-11');
+
+// Calculate current week and day based on program start date
+const getProgramWeekAndDay = () => {
+    const today = new Date();
+    const dayOfWeek = today.getDay(); // 0 = Sunday, 6 = Saturday
+    const days = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday'];
+    
+    // Calculate days since program start
+    const timeDiff = today.getTime() - PROGRAM_START_DATE.getTime();
+    const daysSinceStart = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
+    
+    // Program started on Tuesday (day 3 of week 1)
+    // Week runs Sunday-Saturday, so we need to calculate which week we're in
+    // Feb 11 (Tue) = Week 1, Day 3
+    // Feb 15 (Sat) = Week 1, Day 7
+    // Feb 16 (Sun) = Week 2, Day 1
+    
+    // Days before program start in week 1 (Sun, Mon = 2 days)
+    const daysBeforeStart = 2; // Sunday and Monday before Feb 11
+    
+    // Adjusted days = daysSinceStart + daysBeforeStart (to account for partial first week)
+    const adjustedDays = daysSinceStart + daysBeforeStart;
+    
+    // Calculate week number (0-indexed weeks, then add 1)
+    let weekNum = Math.floor(adjustedDays / 7) + 1;
+    
+    // Clamp to valid range (1-24)
+    if (weekNum < 1) weekNum = 1;
+    if (weekNum > 24) weekNum = 24;
+    
+    // If before program start, default to week 1
+    if (daysSinceStart < 0) weekNum = 1;
+    
+    return {
+        weekNum,
+        dayName: days[dayOfWeek]
+    };
+};
+
 // MAIN APP COMPONENT
 export default function App() {
+  // Get program-calculated week and day
+  const programSchedule = getProgramWeekAndDay();
+  
   // Initialize state
   const [currentWeekNum, setCurrentWeekNum] = useState(() => {
-    const saved = localStorage.getItem('acts2_currentWeek');
-    return saved ? parseInt(saved) : 1;
+    // Use program-calculated week (ignoring saved value to always sync with actual date)
+    return programSchedule.weekNum;
   });
 
   const [currentDay, setCurrentDay] = useState(() => {
-    const days = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday'];
-    const today = new Date().getDay(); // 0 = Sunday, 1 = Monday, etc.
-    return days[today];
+    return programSchedule.dayName;
 });
   const [activeTab, setActiveTab] = useState(() => {
     const saved = localStorage.getItem('acts2_activeTab');
@@ -1078,7 +1120,14 @@ export default function App() {
             <nav style={{ position: 'fixed', bottom: 0, left: 0, right: 0, height: '70px', backgroundColor: colors.bgSecondary,
                 display: 'flex', justifyContent: 'space-around', alignItems: 'center', borderTop: `1px solid ${colors.border}`,
                 maxWidth: '480px', margin: '0 auto' }}>
-                <button onClick={() => {setActiveTab('today'); setActiveResource(null);}} style={{
+                <button onClick={() => {
+                    // Sync to current program week and day when Today is clicked
+                    const schedule = getProgramWeekAndDay();
+                    setCurrentWeekNum(schedule.weekNum);
+                    setCurrentDay(schedule.dayName);
+                    setActiveTab('today'); 
+                    setActiveResource(null);
+                }} style={{
                     background: 'none', border: 'none', display: 'flex', flexDirection: 'column', alignItems: 'center',
                     color: activeTab === 'today' && !activeResource ? colors.teal : colors.textSecondary, cursor: 'pointer'
                 }}>
