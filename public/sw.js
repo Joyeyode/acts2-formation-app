@@ -1,15 +1,33 @@
-const CACHE_NAME = 'acts2-formation-v1';
+const CACHE_NAME = 'acts2-formation-v3';
 const urlsToCache = [
   '/',
   '/index.html',
   '/static/js/bundle.js',
-  '/manifest.json'
+  '/manifest.json',
+  '/logo192.png',
+  '/logo512.png'
 ];
 
 self.addEventListener('install', (event) => {
+  self.skipWaiting(); // Force immediate activation
   event.waitUntil(
     caches.open(CACHE_NAME)
       .then((cache) => cache.addAll(urlsToCache))
+  );
+});
+
+self.addEventListener('activate', (event) => {
+  // Clear old caches
+  event.waitUntil(
+    caches.keys().then((cacheNames) => {
+      return Promise.all(
+        cacheNames.map((cacheName) => {
+          if (cacheName !== CACHE_NAME) {
+            return caches.delete(cacheName);
+          }
+        })
+      );
+    })
   );
 });
 

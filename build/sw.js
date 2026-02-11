@@ -1,9 +1,11 @@
-const CACHE_NAME = 'acts2-formation-v1';
+const CACHE_NAME = 'acts2-formation-v2';
 const urlsToCache = [
   '/',
   '/index.html',
   '/static/js/bundle.js',
-  '/manifest.json'
+  '/manifest.json',
+  '/logo192.png',
+  '/logo512.png'
 ];
 
 self.addEventListener('install', (event) => {
