@@ -719,7 +719,7 @@ const PhaseBanner = ({ phase, title, description, colors }) => {
     );
 };
 
-// PROGRAM START DATE - February 11, 2026 (Week 1, Day 3 = Tuesday)
+// PROGRAM START DATE - February 11, 2026 (Week 1, Day 4 = Wednesday)
 const PROGRAM_START_DATE = new Date('2026-02-11');
 
 // Calculate current week and day based on program start date
@@ -732,14 +732,14 @@ const getProgramWeekAndDay = () => {
     const timeDiff = today.getTime() - PROGRAM_START_DATE.getTime();
     const daysSinceStart = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
     
-    // Program started on Tuesday (day 3 of week 1)
+    // Program started on Wednesday (day 4 of week 1)
     // Week runs Sunday-Saturday, so we need to calculate which week we're in
-    // Feb 11 (Tue) = Week 1, Day 3
-    // Feb 15 (Sat) = Week 1, Day 7
-    // Feb 16 (Sun) = Week 2, Day 1
+    // Feb 11 (Wed) = Week 1, Day 4
+    // Feb 14 (Sat) = Week 1, Day 7
+    // Feb 15 (Sun) = Week 2, Day 1
     
-    // Days before program start in week 1 (Sun, Mon = 2 days)
-    const daysBeforeStart = 2; // Sunday and Monday before Feb 11
+    // Days before program start in week 1 (Sun, Mon, Tue = 3 days)
+    const daysBeforeStart = 3; // Sunday, Monday, Tuesday before Feb 11
     
     // Adjusted days = daysSinceStart + daysBeforeStart (to account for partial first week)
     const adjustedDays = daysSinceStart + daysBeforeStart;
