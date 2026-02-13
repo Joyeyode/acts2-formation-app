@@ -10,6 +10,7 @@ import { fetchScripture } from './services/bibleService';
 import { getNotificationPrefs, saveNotificationPrefs, requestNotificationPermission, scheduleReminder, isNotificationSupported } from './services/notificationService';
 import { submitUserProfile } from './services/firebaseService';
 import { AdminDashboard } from './AdminDashboard';
+import { Analytics } from '@vercel/analytics/react';
 
 // --- STATIC DATA ---
 // Updated to match PDF Workbook v56
@@ -1576,6 +1577,7 @@ export default function App() {
                     </div>
                 </div>
             )}
+            <Analytics />
         </div>
     );
 }
