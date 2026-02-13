@@ -321,7 +321,7 @@ const getDailyTasks = (weekNum) => {
             { id: 'th2', task: 'Hebrew/Greek Study', time: '15 min', pillar: 'Formation' }
         ],
         friday: [
-            { id: 'f1', task: 'Shabbat Preparation', time: '15 min', pillar: 'Presence' },
+            { id: 'f1', task: 'Shabbat Preparation', time: '15 min', pillar: 'Presence', isShabbat: true },
             { id: 'f3', task: 'Cease • Delight • Bless', time: 'Evening', pillar: 'Presence' }
         ],
         saturday: [
@@ -1084,6 +1084,9 @@ export default function App() {
                                         } else if (task.isCharvruta) {
                                             setActiveResource('chavruta');
                                             setActiveTab('resources');
+                                        } else if (task.isShabbat) {
+                                            setActiveResource('shabbat');
+                                            setActiveTab('resources');
                                         } else if (task.isReflection) {
                                             setActiveResource('reflection');
                                             setActiveTab('resources');
@@ -1097,11 +1100,12 @@ export default function App() {
                                     }}>
                                         <div style={{ width: '20px', height: '20px', border: `2px solid ${colors.teal}`,
                                             borderRadius: '5px', display: 'flex', alignItems: 'center', justifyContent: 'center',
-                                            backgroundColor: (task.isRequired || task.isCharvruta || task.isReflection) ? 'transparent' : (completedTasks[`${currentWeekNum}-${currentDay}-${task.id}`] ? colors.teal : 'transparent')
+                                            backgroundColor: (task.isRequired || task.isCharvruta || task.isShabbat || task.isReflection) ? 'transparent' : (completedTasks[`${currentWeekNum}-${currentDay}-${task.id}`] ? colors.teal : 'transparent')
                                         }}>
-                                            {!task.isRequired && !task.isCharvruta && !task.isReflection && completedTasks[`${currentWeekNum}-${currentDay}-${task.id}`] && <Check size={14} color="white" />}
+                                            {!task.isRequired && !task.isCharvruta && !task.isShabbat && !task.isReflection && completedTasks[`${currentWeekNum}-${currentDay}-${task.id}`] && <Check size={14} color="white" />}
                                             {task.isRequired && <BookOpen size={14} color={colors.teal} />}
                                             {task.isCharvruta && <Users size={14} color={colors.teal} />}
+                                            {task.isShabbat && <Heart size={14} color={colors.teal} />}
                                             {task.isReflection && <Heart size={14} color={colors.teal} />}
                                         </div>
                                  <div style={{ flex: 1 }}>
