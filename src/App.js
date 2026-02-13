@@ -71,6 +71,34 @@ const sayItOutLoud = {
     24: "I am sent. This isn't the end—it's the beginning of a life on mission."
 };
 
+// WEEK EXPECTATIONS (What to Expect This Week)
+const weekExpectations = {
+    1: "This week is orientation, not overload. We are building the covenant foundation that holds everything else. Because discipleship without covenant becomes performance—and performance always burns out. So we're establishing three anchors: (1) God adopts you into a family, (2) Scripture forms you like a mirror and a map, and (3) community is not optional—it's the environment where formation happens.",
+    2: "This week we build the backbone of discipleship: a Word-centered life. Not random verses. Not vibes. A formed mind, a trained heart, and a disciplined reading practice. You'll learn the difference between reading the Bible for information and letting the Bible read you for transformation—and you'll practice OIAP with hermeneutical integrity (exegesis, not eisegesis).",
+    3: "This week is about upgrading your picture of God. Many believers love God, but relate to Him through a distorted lens—projecting pain, authority wounds, or shame onto the Father. Doctrine corrects distortion. Worship grows when God is seen clearly.",
+    4: "This week we don't 'figure God out'—we learn to worship God rightly. The Trinity is not a puzzle; it's a revelation. When you see Father, Son, and Spirit working together, you stop treating God like a vending machine and start relating to Him as covenant love. Trinity doctrine also heals attachment wounds.",
+    5: "This week we go back to the beginning—not for trivia, but for identity. If you don't know what you are, you won't know what you're for. Creation doctrine tells you: you are made, named, and sent. It also clarifies warfare: the enemy attacks image, purpose, and peace.",
+    6: "You'll sit in Matthew 6 and Joseph's story and practice a new internal script: from anxiety-driven control to covenantal trust. You'll also learn a core family systems lens—because God often forms us inside relationships, patterns, and pressures, not outside of them.",
+    7: "We're going to ground your identity in Scripture (Genesis 1, Psalm 139, Ephesians 2) and then connect that identity to maturity—how humans actually grow over time. We'll practice the discipline of silence (not emptiness—presence), and we'll use a developmental lens (Erikson) to name where you may be stuck and how discipleship repairs what life interrupted.",
+    8: "We're going to watch shame enter the human story (Genesis 3), then watch Jesus dismantle shame with love (Luke 15). We'll anchor your heart in Romans 8:1 (no condemnation) and Hebrews 4:14–16 (bold access). Then we'll practice solitude—not isolation, but intentional presence with God—so you can hear grace louder than accusation.",
+    9: "We will read Isaiah 53 and Mark 15 with sober honesty and deep gratitude. You'll learn what atonement means, why the cross is necessary, and how Jesus' suffering heals more than your record—it heals your identity. Then we'll practice Scripture memorization as a discipline for replacing strongholds with truth you can actually carry when life hits.",
+    10: "We'll read John 3 and Ephesians 2 and let grace reset the foundation. Then we'll practice fasting (not religious punishment—training the will and the appetites). We'll also use a Life Model lens (Type A / Type B trauma) to name how pain shapes patterns—and how God restores you to relational maturity. Finally, we'll take a leadership baseline (MLQ-informed) to identify your default drift under stress.",
+    11: "We'll sit in Galatians 5 and John 15 and learn the difference between striving and abiding. We'll practice gratitude as a discipline that reorients your attention from scarcity to God's presence. And we'll use an Emotional Intelligence framework to build awareness: naming emotions, reading signals, and responding with wisdom instead of impulse.",
+    12: "We'll build a biblical communication framework from Ephesians 4 and James 1, then practice the discipline of control of the tongue. You'll learn assertive communication (not passive, not passive-aggressive) and you'll write a repair script you can actually use. This week also includes a leadership checkpoint: building your personal leadership micro Rule of Life—follow-through + repair as a lifestyle.",
+    13: "We'll read 1 Corinthians 12 and Acts 6 and learn why gifts require love, order, and maturity. You'll practice compassion as a discipline—because discipleship without compassion becomes control. You'll also build your '3 Names List' and identify one 'Person of Peace' (Luke 10) as your first outreach rep in Phase 2.",
+    14: "This week is about formation with traction: Scripture in your hands, Jesus in your center, and one clear practice you can actually repeat. You're not just learning information—you're rehearsing a new way of living. Prayer as formation with traction - not hype, but reps. Learning to walk in the Spirit with order and love.",
+    15: "This week is about formation with traction: Scripture in your hands, Jesus in your center, and one clear practice you can actually repeat. You're not just learning information—you're rehearsing a new way of living. Church as covenant family, not just organization. Hospitality/table rep - inviting your Person of Peace to connection.",
+    16: "This week is about formation with traction: Scripture in your hands, Jesus in your center, and one clear practice you can actually repeat. You're not just learning information—you're rehearsing a new way of living. Enemy Mode vs Relational Mode. Learning to fight lies, not people.",
+    17: "This week is about formation with traction: Scripture in your hands, Jesus in your center, and one clear practice you can actually repeat. You're not just learning information—you're rehearsing a new way of living. Sharing a 2-3 minute testimony and offering a simple prayer. Permission-based witness with clear next steps.",
+    18: "This week is about formation with traction: Scripture in your hands, Jesus in your center, and one clear practice you can actually repeat. You're not just learning information—you're rehearsing a new way of living. Integrating holiness, justice, and mercy as Kingdom lifestyle. Boaz models righteousness, generosity, and covenant faithfulness.",
+    19: "This week is about formation with traction: Scripture in your hands, Jesus in your center, and one clear practice you can actually repeat. You're not just learning information—you're rehearsing a new way of living. Parenting styles and discipleship within the home. Encouragement/blessing others.",
+    20: "This week is about formation with traction: Scripture in your hands, Jesus in your center, and one clear practice you can actually repeat. You're not just learning information—you're rehearsing a new way of living. Discernment grid for hearing God's voice without hype or manipulation.",
+    21: "This week is about formation with traction: Scripture in your hands, Jesus in your center, and one clear practice you can actually repeat. You're not just learning information—you're rehearsing a new way of living. Mentor map - identifying one person to disciple for 90 days. Making the ask.",
+    22: "This week is about formation with traction: Scripture in your hands, Jesus in your center, and one clear practice you can actually repeat. You're not just learning information—you're rehearsing a new way of living. Fivefold markers (apostle, prophet, evangelist, shepherd, teacher) for equipping the body.",
+    23: "This week is about formation with traction: Scripture in your hands, Jesus in your center, and one clear practice you can actually repeat. You're not just learning information—you're rehearsing a new way of living. Leadership styles assessment. Rest and Sabbath review. Leading under love, not control.",
+    24: "This week is about formation with traction: Scripture in your hands, Jesus in your center, and one clear practice you can actually repeat. You're not just learning information—you're rehearsing a new way of living. 90-day Rule of Life. Disciple-making plan submission. Finishing faithful with hope fixed on Christ's return."
+};
+
 // HEBREW/GREEK WORD WINDOWS (From PDF)
 const wordWindows = {
     1: {
@@ -992,14 +1020,14 @@ export default function App() {
                                         </div>
                                     )}
 
-                                    {/* Formation Question */}
-                                    {wordWindows[currentWeekNum]?.formationQ && (
+                                    {/* What to Expect This Week */}
+                                    {weekExpectations[currentWeekNum] && (
                                         <div style={{ background: colors.bgPrimary, padding: '12px', borderRadius: '8px', marginBottom: '12px', borderLeft: `3px solid ${colors.teal}` }}>
                                             <p style={{ margin: '0 0 6px 0', fontSize: '0.75rem', fontWeight: 'bold', color: colors.teal }}>
-                                                FORMATION QUESTION
+                                                WHAT TO EXPECT THIS WEEK
                                             </p>
-                                            <p style={{ margin: 0, fontSize: '0.85rem', fontStyle: 'italic', color: colors.textSecondary }}>
-                                                "{wordWindows[currentWeekNum].formationQ}"
+                                            <p style={{ margin: 0, fontSize: '0.85rem', lineHeight: '1.5', color: colors.textPrimary }}>
+                                                {weekExpectations[currentWeekNum]}
                                             </p>
                                         </div>
                                     )}
