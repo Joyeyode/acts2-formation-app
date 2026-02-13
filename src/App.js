@@ -219,50 +219,77 @@ const wordWindows = {
         formationQ: 'How am I living as one sent by Jesus?'
     }
 };
-const weeklyScripture = {
-    1: { passage: "Genesis 12:1-3", focus: "Covenant & Identity" },
-    2: { passage: "2 Timothy 3:16-17", focus: "Scripture's Power" },
-    3: { passage: "Psalm 8", focus: "God's Majesty" },
-    4: { passage: "Matthew 28:19", focus: "The Trinity" },
-    5: { passage: "Genesis 1:26-28", focus: "Created Purpose" },
-    6: { passage: "Romans 8:28-30", focus: "God's Providence" },
-    7: { passage: "Colossians 3:9-10", focus: "New Self" },
-    8: { passage: "Romans 8:1-2", focus: "No Condemnation" },
-    9: { passage: "Isaiah 53:4-6", focus: "The Cross" },
-    10: { passage: "1 Peter 2:24", focus: "Healing & Salvation" },
-    11: { passage: "Galatians 5:22-23", focus: "Fruit of Spirit Part 1" },
-    12: { passage: "Ephesians 4:29-32", focus: "Fruit of Spirit Part 2" },
-    13: { passage: "1 Corinthians 12:4-11", focus: "Spiritual Gifts" },
-    14: { passage: "Romans 8:26-27", focus: "Prayer in Spirit" },
-    15: { passage: "Acts 2:42-47", focus: "Church Community" },
-    16: { passage: "Ephesians 6:10-18", focus: "Armor of God" },
-    17: { passage: "Matthew 28:18-20", focus: "Great Commission" },
-    18: { passage: "Luke 4:18-19", focus: "Kingdom Living" },
-    19: { passage: "Deuteronomy 6:4-9", focus: "Family Discipleship" },
-    20: { passage: "John 10:27", focus: "Hearing God's Voice" },
-    21: { passage: "2 Timothy 2:2", focus: "Multiplication" },
-    22: { passage: "Ephesians 4:11-13", focus: "Fivefold Ministry" },
-    23: { passage: "1 Peter 5:1-4", focus: "Servant Leadership" },
-    24: { passage: "John 20:21", focus: "Sent Out" }
+const dailyScripture = {
+    1: { monday: "Acts 2:42-47", tuesday: "1 Peter 2:9-10", wednesday: "Deuteronomy 6:4-9", thursday: "John 15:1-11", focus: "Covenant & Identity" },
+    2: { monday: "2 Timothy 3:14-17", tuesday: "Psalm 119:9-16", wednesday: "Acts 17:10-12", thursday: "John 17:17", focus: "Scripture & Revelation" },
+    3: { monday: "Exodus 34:6-7", tuesday: "Psalm 145", wednesday: "Isaiah 6:1-8", thursday: "Romans 11:33-36", focus: "God: Attributes & Awe" },
+    4: { monday: "Matthew 3:13-17", tuesday: "John 1:1-18", wednesday: "2 Corinthians 13:14", thursday: "Ephesians 1:3-14", focus: "The Trinity" },
+    5: { monday: "Genesis 1:26-28", tuesday: "Psalm 19", wednesday: "Colossians 1:15-20", thursday: "Romans 8:18-25", focus: "Creation & Purpose" },
+    6: { monday: "Matthew 6:25-34", tuesday: "Genesis 50:20", wednesday: "Romans 8:28", thursday: "James 1:2-5", focus: "Providence" },
+    7: { monday: "Psalm 139", tuesday: "Genesis 1:26-28", wednesday: "Ephesians 2:1-10", thursday: "2 Corinthians 5:17", focus: "Image of God & Maturity" },
+    8: { monday: "Genesis 3", tuesday: "Luke 15", wednesday: "Romans 8:1", thursday: "Hebrews 4:14-16", focus: "Grace vs Shame" },
+    9: { monday: "Isaiah 53", tuesday: "Mark 15", wednesday: "Hebrews 9", thursday: "1 Peter 2:24", focus: "Atonement: The Cross" },
+    10: { monday: "John 3", tuesday: "Ephesians 2:8-10", wednesday: "Titus 3:4-7", thursday: "Romans 5:1-5", focus: "Salvation & Stabilization" },
+    11: { monday: "Galatians 5:16-26", tuesday: "John 15", wednesday: "Romans 12", thursday: "Psalm 1", focus: "Fruit of Spirit Part 1" },
+    12: { monday: "Ephesians 4:25-32", tuesday: "James 1:19-27", wednesday: "Proverbs 15", thursday: "Colossians 3:12-17", focus: "Fruit Part 2: Speech" },
+    13: { monday: "1 Corinthians 12", tuesday: "Romans 12:3-8", wednesday: "1 Peter 4:10-11", thursday: "Acts 6", focus: "Gifts of the Spirit" },
+    14: { monday: "Acts 2:1-21", tuesday: "1 Corinthians 14", wednesday: "Jude 20-21", thursday: "1 Thessalonians 5:16-18", focus: "Prayer & Tongues" },
+    15: { monday: "Acts 2:42-47", tuesday: "Ephesians 4:1-16", wednesday: "1 Peter 2:4-10", thursday: "Hebrews 10:24-25", focus: "Covenant Community" },
+    16: { monday: "Ephesians 6:10-18", tuesday: "2 Corinthians 10:3-5", wednesday: "James 4:7-8", thursday: "1 Peter 5:8-10", focus: "Spiritual Warfare" },
+    17: { monday: "Matthew 28:18-20", tuesday: "Acts 8", wednesday: "Romans 10", thursday: "2 Corinthians 5:17-21", focus: "Mission & Witness" },
+    18: { monday: "Micah 6:8", tuesday: "Matthew 5-7", wednesday: "James 2", thursday: "Isaiah 58", focus: "Kingdom Living" },
+    19: { monday: "Deuteronomy 6", tuesday: "Ephesians 6:1-4", wednesday: "Proverbs 4", thursday: "Colossians 3:12-17", focus: "Discipleship in Home" },
+    20: { monday: "John 10", tuesday: "1 Kings 19", wednesday: "Acts 13:1-3", thursday: "Romans 8:14", focus: "Hearing God's Voice" },
+    21: { monday: "2 Timothy 2:1-2", tuesday: "Titus 2", wednesday: "Colossians 1:28-29", thursday: "Acts 18", focus: "Mentoring & Multiplication" },
+    22: { monday: "Ephesians 4:7-16", tuesday: "1 Corinthians 12", wednesday: "Acts 11-13", thursday: "1 Peter 4:10-11", focus: "Fivefold Gifts" },
+    23: { monday: "Mark 10:42-45", tuesday: "Philippians 2:1-11", wednesday: "1 Peter 5:1-4", thursday: "Proverbs 11:14", focus: "Leadership Under Love" },
+    24: { monday: "Revelation 21", tuesday: "Hebrews 12:1-2", wednesday: "2 Timothy 4:6-8", thursday: "1 Peter 1:3-9", focus: "Commissioning & Hope" }
+};
+
+const requiredReadings = {
+    1: { title: "Week 1 - Covenant & Identity", readings: ["Jones Intro pp. 1–10", "Pearlman: Introduction — The Nature/Value/Classification/System of Doctrine", "Calhoun: Rule for Life pp. 37–41"] },
+    2: { title: "Week 2 - Scripture & Revelation", readings: ["Jones (2nd ed.) — Ch. 2: Knowing God: Doctrines of Revelation and Scripture (pp. 31–54)", "Pearlman — Ch. 1: The Scriptures (I. Need p.17; II. Inspiration p.19; III. Verification p.25)", "Calhoun: Fixed-Hour Prayer (pp. 250–253), Listening Prayer (pp. 266–268)"] },
+    3: { title: "Week 3 - God: Attributes & Awe", readings: ["Jones (2nd ed.) — Ch. 2: Knowing God (pp. 31–54)", "Pearlman — Ch. 2: God (I. Existence p.33; II. Nature p.50; III. Attributes p.57)", "Calhoun: Celebration (pp. 28–30)"] },
+    4: { title: "Week 4 - The Trinity", readings: ["Jones (2nd ed.) — Ch. 3: Doctrine of the Trinity (pp. 55–76)", "Pearlman — Ch. 2: God (IV. Trinity p.68)", "Calhoun: Holy Communion (pp. 34–36)"] },
+    5: { title: "Week 5 - Creation & Purpose", readings: ["Jones (2nd ed.) — Ch. 4: Doctrines of Creation and Providence (pp. 77–86)", "Pearlman — Ch. 3: Angels (I. Angels p.81; II. Satan p.85; III. Wicked Spirits p.91)", "Calhoun: Discernment (pp. 109–113)"] },
+    6: { title: "Week 6 - Providence", readings: ["Jones (Practicing Christian Doctrine, 2nd ed.) — Chapter 4, pp. 87–96", "Myer Pearlman — Chapter 4: Man (Origin p.97; Nature p.101; God's Image p.115)", "Calhoun (Spiritual Disciplines Handbook) — Confession & Self-Examination, pp. 101–104"] },
+    7: { title: "Week 7 - Image of God & Maturity", readings: ["Jones (Practicing Christian Doctrine, 2nd ed.) — Chapter 5, pp. 97–116", "Myer Pearlman — Chapter 5: Sin (Fact p.121; Origin p.124; Nature p.129; Consequences p.134)", "Calhoun (Spiritual Disciplines Handbook) — Silence, pp. 121–124"] },
+    8: { title: "Week 8 - Grace vs Shame", readings: ["Jones (Practicing Christian Doctrine, 2nd ed.) — Chapter 6, pp. 117–140", "Myer Pearlman — Chapter 6: The Lord Jesus Christ (Nature p.141; Offices p.165; Work p.171)", "Calhoun (Spiritual Disciplines Handbook) — Solitude, pp. 128–131"] },
+    9: { title: "Week 9 - Atonement: The Cross", readings: ["Jones (Practicing Christian Doctrine, 2nd ed.) — Chapter 7, pp. 141–153", "Myer Pearlman — Chapter 7: The Atonement (OT p.185; NT p.195)", "Calhoun (Spiritual Disciplines Handbook) — Memorization, pp. 194–196"] },
+    10: { title: "Week 10 - Salvation & Stabilization", readings: ["Jones (Practicing Christian Doctrine, 2nd ed.) — Chapter 7, pp. 154–166", "Myer Pearlman — Chapter 8: Salvation (Nature p.219; Justification p.227; Regeneration p.242; Sanctification p.249; Security p.267)", "Calhoun (Spiritual Disciplines Handbook) — Fasting, pp. 245–249"] },
+    11: { title: "Week 11 - Holy Spirit: Fruit Part 1", readings: ["Jones (Practicing Christian Doctrine, 2nd ed.) — Chapter 8, pp. 167–178", "Myer Pearlman — Chapter 9: The Holy Spirit (Nature p.281; OT p.290; In Christ p.298; Human Experience p.303)", "Calhoun (Spiritual Disciplines Handbook) — Gratitude, pp. 31–33"] },
+    12: { title: "Week 12 - Fruit Part 2: Speech", readings: ["Jones (Practicing Christian Doctrine, 2nd ed.) — Chapter 8, pp. 179–190", "Myer Pearlman — Chapter 9: The Holy Spirit (Gifts p.320; In the Church p.335)", "Calhoun (Spiritual Disciplines Handbook) — Control of the Tongue, pp. 208–211"] },
+    13: { title: "Week 13 - Gifts of the Spirit", readings: ["Jones (Practicing Christian Doctrine, 2nd ed.) — Chapter 9, pp. 191–202", "Myer Pearlman — Chapter 9: The Holy Spirit (Gifts p.320)", "Calhoun (Spiritual Disciplines Handbook) — Compassion, pp. 205–207"] },
+    14: { title: "Week 14 - Prayer & Tongues", readings: ["Jones (Practicing Christian Doctrine, 2nd ed.): Jones Ch9 pp. 203–214", "Pearlman: Ch. 9 — The Holy Spirit", "Calhoun (Spiritual Disciplines Handbook): Praying Scripture pp. 278–280"] },
+    15: { title: "Week 15 - Covenant Community", readings: ["Jones Ch10 pp. 215–226", "Pearlman — Ch. 10: The Church (Nature p.345; Founding p.348; Membership p.349)", "Calhoun: Community pp. 149–151"] },
+    16: { title: "Week 16 - Spiritual Warfare", readings: ["Jones (Practicing Christian Doctrine, 2nd ed.): Jones Ch10 pp. 227–236", "Pearlman: Ch. 3 — Angels", "Calhoun (Spiritual Disciplines Handbook): Intercessory Prayer pp. 258–261"] },
+    17: { title: "Week 17 - Mission & Witness", readings: ["Jones (Practicing Christian Doctrine, 2nd ed.): Jones Benediction pp. 237–238", "Pearlman: Ch. 10 — The Church", "Calhoun (Spiritual Disciplines Handbook): Witness pp. 180–182"] },
+    18: { title: "Week 18 - Kingdom Living", readings: ["Jones review (Creation/Providence ethics)", "Pearlman — Ch. 8: Salvation (Sanctification p.249)", "Calhoun: Justice pp. 218–220"] },
+    19: { title: "Week 19 - Discipleship in Home", readings: ["Jones (Practicing Christian Doctrine, 2nd ed.): Jones review (Image of God)", "Pearlman: Ch. 4 — Man", "Calhoun (Spiritual Disciplines Handbook): Encouragement/Blessing Others pp. 198–201"] },
+    20: { title: "Week 20 - Hearing God", readings: ["Jones (Practicing Christian Doctrine, 2nd ed.): Jones review (Pneumatology)", "Pearlman: Ch. 9 — The Holy Spirit", "Calhoun (Spiritual Disciplines Handbook): Listening Prayer pp. 266–268"] },
+    21: { title: "Week 21 - Mentoring & Multiplication", readings: ["Jones review (theology shapes life)", "Pearlman — Ch. 10: The Church (Organization p.359)", "Calhoun: Mentoring pp. 164–166"] },
+    22: { title: "Week 22 - Fivefold Gifts", readings: ["Pearlman — Ch. 10: The Church (Work p.351)", "Calhoun: Discipling pp. 155–157"] },
+    23: { title: "Week 23 - Leadership Under Love", readings: ["Jones review (Trinity shapes leadership)", "Pearlman — Ch. 2: God (Attributes p.57)", "Calhoun: Rest pp. 74–76 + Sabbath review pp. 42–45"] },
+    24: { title: "Week 24 - Commissioning & Hope", readings: ["Jones Ch10 review pp. 215–236 + Benediction pp. 237–238", "Pearlman — Ch. 11: The Last Things (Death p.361; Resurrection p.370; Second Coming p.385)", "Calhoun: Prayer of Recollection pp. 281–283"] }
 };
 
 const getDailyTasks = (weekNum) => {
-    const scripture = weeklyScripture[weekNum] || weeklyScripture[1];
+    const dailyReading = dailyScripture[weekNum] || dailyScripture[1];
     return {
         monday: [
-            { id: 'm1', task: `Scripture Reading (OIAP): ${scripture.passage}`, time: '20 min', pillar: 'Presence' },
-            { id: 'm2', task: 'Doctrine Reading', time: '15 min', pillar: 'Formation' }
+            { id: 'm1', task: `Scripture Reading (OIAP): ${dailyReading.monday}`, time: '20 min', pillar: 'Presence' },
+            { id: 'm2', task: 'Required Reading', time: '15 min', pillar: 'Formation', isRequired: true, weekNum }
         ],
         tuesday: [
-            { id: 't1', task: `Scripture Reading (OIAP): ${scripture.passage}`, time: '20 min', pillar: 'Presence' },
+            { id: 't1', task: `Scripture Reading (OIAP): ${dailyReading.tuesday}`, time: '20 min', pillar: 'Presence' },
             { id: 't2', task: 'Practice Rep', time: '10 min', pillar: 'Formation' }
         ],
         wednesday: [
-            { id: 'w1', task: `Scripture Reading (OIAP): ${scripture.passage}`, time: '20 min', pillar: 'Presence' },
-            { id: 'w2', task: `Chavruta Small Group - ${scripture.focus}`, time: '90 min', pillar: 'Connection' }
+            { id: 'w1', task: `Scripture Reading (OIAP): ${dailyReading.wednesday}`, time: '20 min', pillar: 'Presence' },
+            { id: 'w2', task: `Chavruta Small Group - ${dailyReading.focus}`, time: '90 min', pillar: 'Connection', isCharvruta: true }
         ],
         thursday: [
-            { id: 'th1', task: `Scripture Reading (OIAP): ${scripture.passage}`, time: '20 min', pillar: 'Presence' },
+            { id: 'th1', task: `Scripture Reading (OIAP): ${dailyReading.thursday}`, time: '20 min', pillar: 'Presence' },
             { id: 'th2', task: 'Hebrew/Greek Study', time: '15 min', pillar: 'Formation' }
         ],
         friday: [
@@ -270,8 +297,8 @@ const getDailyTasks = (weekNum) => {
             { id: 'f3', task: 'Cease • Delight • Bless', time: 'Evening', pillar: 'Presence' }
         ],
         saturday: [
-            { id: 's1', task: `Reflection: ${scripture.focus}`, time: '15 min', pillar: 'Formation' },
-            { id: 's4', task: 'Journal + Prayer', time: '20 min', pillar: 'Presence' }
+            { id: 's1', task: `Reflection: ${dailyReading.focus}`, time: '15 min', pillar: 'Formation' },
+            { id: 's4', task: 'Journal + Prayer', time: '20 min', pillar: 'Presence', isReflection: true }
         ],
         sunday: [
             { id: 'su1', task: 'Gathered Worship', time: '90 min', pillar: 'Presence' },
@@ -804,6 +831,8 @@ export default function App() {
     return localStorage.getItem('acts2_profileSubmitted') === 'true';
   });
   const [showAdmin, setShowAdmin] = useState(false);
+  const [showRequiredReading, setShowRequiredReading] = useState(false);
+  const [selectedRequiredWeek, setSelectedRequiredWeek] = useState(null);
 
     useEffect(() => {
     localStorage.setItem('acts2_currentWeek', currentWeekNum.toString());
@@ -820,21 +849,26 @@ export default function App() {
     }
   }, [notificationPrefs.enabled, notificationsSupported, currentWeekNum, currentDay]);
 
-  // Fetch scripture when week changes
+  // Fetch scripture when week or day changes
   useEffect(() => {
     const getScripture = async () => {
       setScriptureLoading(true);
-      const passage = weeklyScripture[currentWeekNum]?.passage;
-      console.log(`Fetching scripture for week ${currentWeekNum}:`, passage);
+      const dailyReading = dailyScripture[currentWeekNum];
+      // Only fetch for Mon-Thu
+      const validDays = ['monday', 'tuesday', 'wednesday', 'thursday'];
+      const passage = validDays.includes(currentDay) && dailyReading ? dailyReading[currentDay] : null;
+      console.log(`Fetching scripture for week ${currentWeekNum}, day ${currentDay}:`, passage);
       if (passage) {
         const text = await fetchScripture(passage);
         console.log(`Scripture fetched:`, text ? `${text.substring(0, 100)}...` : 'null');
         setScriptureText(text || '');
+      } else {
+        setScriptureText('');
       }
       setScriptureLoading(false);
     };
     getScripture();
-  }, [currentWeekNum]);
+  }, [currentWeekNum, currentDay]);
 
     const colors = darkMode ? {
       teal: '#1B9AAA',
@@ -977,7 +1011,7 @@ export default function App() {
                                     <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '12px' }}>
                                         <BookMarked size={18} />
                                         <span style={{ fontSize: '0.85rem', fontWeight: '600', opacity: 0.9 }}>
-                                            WEEKLY SCRIPTURE
+                                            {['monday', 'tuesday', 'wednesday', 'thursday'].includes(currentDay) ? 'TODAY\'S SCRIPTURE' : 'WEEKLY FOCUS'}
                                         </span>
                                     </div>
                                     <p style={{ fontSize: '0.9rem', fontStyle: 'italic', marginBottom: '12px', lineHeight: '1.5' }}>
@@ -987,12 +1021,14 @@ export default function App() {
                                             scriptureText
                                         ) : (
                                             <span style={{ opacity: 0.8 }}>
-                                                {weeklyScripture[currentWeekNum]?.passage || 'Scripture unavailable'}
+                                                {['monday', 'tuesday', 'wednesday', 'thursday'].includes(currentDay) 
+                                                    ? dailyScripture[currentWeekNum]?.[currentDay] || 'Scripture unavailable'
+                                                    : 'Reflect on this week\'s theme during rest, worship, and prayer'}
                                             </span>
                                         )}
                                     </p>
                                     <p style={{ fontSize: '0.85rem', fontWeight: '600', margin: '8px 0 0 0', opacity: 0.9 }}>
-                                        {weeklyScripture[currentWeekNum]?.focus || ''}
+                                        {dailyScripture[currentWeekNum]?.focus || ''}
                                     </p>
                                 </div>
 
@@ -1013,22 +1049,38 @@ export default function App() {
                                 </div>
 
                                 {dailyTasks[currentDay].map(task => (
-                                    <div key={task.id} onClick={() => toggleTask(task.id)} style={{
+                                    <div key={task.id} onClick={() => {
+                                        if (task.isRequired) {
+                                            setSelectedRequiredWeek(task.weekNum);
+                                            setShowRequiredReading(true);
+                                        } else if (task.isCharvruta) {
+                                            setActiveResource('chavruta');
+                                            setActiveTab('resources');
+                                        } else if (task.isReflection) {
+                                            setActiveResource('reflection');
+                                            setActiveTab('resources');
+                                        } else {
+                                            toggleTask(task.id);
+                                        }
+                                    }} style={{
                                         background: colors.bgSecondary, padding: '15px', borderRadius: '12px', display: 'flex',
                                         alignItems: 'center', gap: '15px', cursor: 'pointer', borderLeft: `5px solid ${colors.teal}`,
                                         border: `1px solid ${colors.border}`
                                     }}>
                                         <div style={{ width: '20px', height: '20px', border: `2px solid ${colors.teal}`,
                                             borderRadius: '5px', display: 'flex', alignItems: 'center', justifyContent: 'center',
-                                            backgroundColor: completedTasks[`${currentWeekNum}-${currentDay}-${task.id}`] ? colors.teal : 'transparent'
+                                            backgroundColor: (task.isRequired || task.isCharvruta || task.isReflection) ? 'transparent' : (completedTasks[`${currentWeekNum}-${currentDay}-${task.id}`] ? colors.teal : 'transparent')
                                         }}>
-                                            {completedTasks[`${currentWeekNum}-${currentDay}-${task.id}`] && <Check size={14} color="white" />}
+                                            {!task.isRequired && !task.isCharvruta && !task.isReflection && completedTasks[`${currentWeekNum}-${currentDay}-${task.id}`] && <Check size={14} color="white" />}
+                                            {task.isRequired && <BookOpen size={14} color={colors.teal} />}
+                                            {task.isCharvruta && <Users size={14} color={colors.teal} />}
+                                            {task.isReflection && <Heart size={14} color={colors.teal} />}
                                         </div>
                                  <div style={{ flex: 1 }}>
                     <div style={{ 
                         fontWeight: 'bold', 
                         color: colors.textPrimary,
-                        textDecoration: completedTasks[`${currentWeekNum}-${currentDay}-${task.id}`] ? 'line-through' : 'none'
+                        textDecoration: !task.isRequired && completedTasks[`${currentWeekNum}-${currentDay}-${task.id}`] ? 'line-through' : 'none'
                     }}>
                         {task.task}
                     </div>
@@ -1345,6 +1397,60 @@ export default function App() {
                             )}
                         </>
                     )}
+                </div>
+            )}
+
+            {/* Required Reading Modal */}
+            {showRequiredReading && selectedRequiredWeek && requiredReadings[selectedRequiredWeek] && (
+                <div style={{ 
+                    position: 'fixed', bottom: 0, left: 0, right: 0, maxWidth: '480px', margin: '0 auto',
+                    backgroundColor: colors.bgSecondary, borderTop: `1px solid ${colors.border}`, 
+                    padding: '20px', maxHeight: '70vh', overflowY: 'auto', boxShadow: '0 -2px 10px rgba(0,0,0,0.1)',
+                    zIndex: 1000, borderRadius: '16px 16px 0 0'
+                }}>
+                    {/* Close Button */}
+                    <button onClick={() => setShowRequiredReading(false)} style={{
+                        position: 'absolute', top: '12px', right: '12px', background: 'none', 
+                        border: 'none', color: colors.teal, fontSize: '24px', cursor: 'pointer',
+                        display: 'flex', alignItems: 'center'
+                    }}>
+                        <X size={24} color={colors.teal} />
+                    </button>
+
+                    <h2 style={{ color: colors.textPrimary, marginTop: 0, marginBottom: '12px', paddingRight: '32px' }}>
+                        📚 {requiredReadings[selectedRequiredWeek].title}
+                    </h2>
+                    
+                    <div style={{ marginTop: '20px' }}>
+                        <h3 style={{ color: colors.teal, fontSize: '16px', fontWeight: '600', marginBottom: '12px' }}>
+                            Required Readings:
+                        </h3>
+                        <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+                            {requiredReadings[selectedRequiredWeek].readings.map((reading, idx) => (
+                                <div key={idx} style={{
+                                    background: colors.bgPrimary, padding: '16px', borderRadius: '12px',
+                                    borderLeft: `4px solid ${colors.teal}`
+                                }}>
+                                    <p style={{
+                                        color: colors.textPrimary, fontSize: '14px', lineHeight: '1.6', 
+                                        margin: 0
+                                    }}>
+                                        {reading}
+                                    </p>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+
+                    <div style={{ marginTop: '20px', paddingBottom: '12px' }}>
+                        <button onClick={() => setShowRequiredReading(false)} style={{
+                            width: '100%', padding: '12px', borderRadius: '8px',
+                            backgroundColor: colors.teal, color: 'white', border: 'none',
+                            cursor: 'pointer', fontSize: '14px', fontWeight: '600'
+                        }}>
+                            Close
+                        </button>
+                    </div>
                 </div>
             )}
         </div>
