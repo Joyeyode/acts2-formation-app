@@ -318,7 +318,7 @@ const getDailyTasks = (weekNum) => {
         ],
         thursday: [
             { id: 'th1', task: `Scripture Reading (OIAP): ${dailyReading.thursday}`, time: '20 min', pillar: 'Presence' },
-            { id: 'th2', task: 'Hebrew/Greek Study', time: '15 min', pillar: 'Formation' }
+            { id: 'th2', task: 'Hebrew/Greek Study', time: '15 min', pillar: 'Formation', isWordWindow: true, weekNum }
         ],
         friday: [
             { id: 'f1', task: 'Shabbat Preparation', time: '15 min', pillar: 'Presence', isShabbat: true },
@@ -861,6 +861,8 @@ export default function App() {
   const [showAdmin, setShowAdmin] = useState(false);
   const [showRequiredReading, setShowRequiredReading] = useState(false);
   const [selectedRequiredWeek, setSelectedRequiredWeek] = useState(null);
+  const [showWordWindow, setShowWordWindow] = useState(false);
+  const [selectedWordWindow, setSelectedWordWindow] = useState(null);
 
     useEffect(() => {
     localStorage.setItem('acts2_currentWeek', currentWeekNum.toString());
@@ -1090,6 +1092,9 @@ export default function App() {
                                         } else if (task.isReflection) {
                                             setActiveResource('reflection');
                                             setActiveTab('resources');
+                                        } else if (task.isWordWindow) {
+                                            setSelectedWordWindow(task.weekNum);
+                                            setShowWordWindow(true);
                                         } else {
                                             toggleTask(task.id);
                                         }
@@ -1100,13 +1105,14 @@ export default function App() {
                                     }}>
                                         <div style={{ width: '20px', height: '20px', border: `2px solid ${colors.teal}`,
                                             borderRadius: '5px', display: 'flex', alignItems: 'center', justifyContent: 'center',
-                                            backgroundColor: (task.isRequired || task.isCharvruta || task.isShabbat || task.isReflection) ? 'transparent' : (completedTasks[`${currentWeekNum}-${currentDay}-${task.id}`] ? colors.teal : 'transparent')
+                                            backgroundColor: (task.isRequired || task.isCharvruta || task.isShabbat || task.isReflection || task.isWordWindow) ? 'transparent' : (completedTasks[`${currentWeekNum}-${currentDay}-${task.id}`] ? colors.teal : 'transparent')
                                         }}>
-                                            {!task.isRequired && !task.isCharvruta && !task.isShabbat && !task.isReflection && completedTasks[`${currentWeekNum}-${currentDay}-${task.id}`] && <Check size={14} color="white" />}
+                                            {!task.isRequired && !task.isCharvruta && !task.isShabbat && !task.isReflection && !task.isWordWindow && completedTasks[`${currentWeekNum}-${currentDay}-${task.id}`] && <Check size={14} color="white" />}
                                             {task.isRequired && <BookOpen size={14} color={colors.teal} />}
                                             {task.isCharvruta && <Users size={14} color={colors.teal} />}
                                             {task.isShabbat && <Heart size={14} color={colors.teal} />}
                                             {task.isReflection && <Heart size={14} color={colors.teal} />}
+                                            {task.isWordWindow && <BookMarked size={14} color={colors.teal} />}
                                         </div>
                                  <div style={{ flex: 1 }}>
                     <div style={{ 
@@ -1476,6 +1482,82 @@ export default function App() {
 
                     <div style={{ marginTop: '20px', paddingBottom: '12px' }}>
                         <button onClick={() => setShowRequiredReading(false)} style={{
+                            width: '100%', padding: '12px', borderRadius: '8px',
+                            backgroundColor: colors.teal, color: 'white', border: 'none',
+                            cursor: 'pointer', fontSize: '14px', fontWeight: '600'
+                        }}>
+                            Close
+                        </button>
+                    </div>
+                </div>
+            )}
+
+            {/* Word Window (Hebrew/Greek Study) Modal */}
+            {showWordWindow && selectedWordWindow && wordWindows[selectedWordWindow] && (
+                <div style={{ 
+                    position: 'fixed', bottom: 0, left: 0, right: 0, maxWidth: '480px', margin: '0 auto',
+                    backgroundColor: colors.bgSecondary, borderTop: `1px solid ${colors.border}`, 
+                    padding: '20px', maxHeight: '70vh', overflowY: 'auto', boxShadow: '0 -2px 10px rgba(0,0,0,0.1)',
+                    zIndex: 1000, borderRadius: '16px 16px 0 0'
+                }}>
+                    {/* Close Button */}
+                    <button onClick={() => setShowWordWindow(false)} style={{
+                        position: 'absolute', top: '12px', right: '12px', background: 'none', 
+                        border: 'none', color: colors.teal, fontSize: '24px', cursor: 'pointer',
+                        display: 'flex', alignItems: 'center'
+                    }}>
+                        <X size={24} color={colors.teal} />
+                    </button>
+
+                    <h2 style={{ color: colors.textPrimary, marginTop: 0, marginBottom: '16px', paddingRight: '32px' }}>
+                        📖 Word Window - Week {selectedWordWindow}
+                    </h2>
+                    
+                    <div style={{ marginTop: '20px' }}>
+                        {/* Hebrew/Greek Word */}
+                        <div style={{ background: colors.bgPrimary, padding: '20px', borderRadius: '12px', marginBottom: '16px', border: `2px solid ${colors.teal}` }}>
+                            <div style={{ marginBottom: '12px' }}>
+                                {wordWindows[selectedWordWindow].hebrew && (
+                                    <div style={{ marginBottom: '12px' }}>
+                                        <p style={{ color: colors.teal, fontSize: '12px', fontWeight: '600', margin: '0 0 4px 0' }}>Hebrew:</p>
+                                        <p style={{ color: colors.textPrimary, fontSize: '24px', fontWeight: 'bold', margin: '0' }}>
+                                            {wordWindows[selectedWordWindow].hebrew}
+                                        </p>
+                                    </div>
+                                )}
+                                {wordWindows[selectedWordWindow].greek && (
+                                    <div>
+                                        <p style={{ color: colors.teal, fontSize: '12px', fontWeight: '600', margin: '0 0 4px 0' }}>Greek:</p>
+                                        <p style={{ color: colors.textPrimary, fontSize: '24px', fontWeight: 'bold', margin: '0' }}>
+                                            {wordWindows[selectedWordWindow].greek}
+                                        </p>
+                                    </div>
+                                )}
+                            </div>
+                            <p style={{ color: colors.textSecondary, fontSize: '13px', fontStyle: 'italic', margin: '12px 0 0 0' }}>
+                                {wordWindows[selectedWordWindow].transliteration}
+                            </p>
+                        </div>
+
+                        {/* Meaning */}
+                        <div style={{ background: colors.bgPrimary, padding: '16px', borderRadius: '12px', marginBottom: '16px', borderLeft: `4px solid ${colors.teal}` }}>
+                            <p style={{ color: colors.teal, fontSize: '12px', fontWeight: '600', margin: '0 0 8px 0' }}>Meaning:</p>
+                            <p style={{ color: colors.textPrimary, fontSize: '15px', lineHeight: '1.6', margin: '0' }}>
+                                {wordWindows[selectedWordWindow].meaning}
+                            </p>
+                        </div>
+
+                        {/* Formation Question */}
+                        <div style={{ background: `linear-gradient(135deg, ${colors.teal}15 0%, ${colors.teal}08 100%)`, padding: '16px', borderRadius: '12px', borderLeft: `4px solid ${colors.teal}` }}>
+                            <p style={{ color: colors.teal, fontSize: '12px', fontWeight: '600', margin: '0 0 8px 0' }}>Formation Question:</p>
+                            <p style={{ color: colors.textPrimary, fontSize: '15px', lineHeight: '1.6', margin: '0', fontStyle: 'italic' }}>
+                                {wordWindows[selectedWordWindow].formationQ}
+                            </p>
+                        </div>
+                    </div>
+
+                    <div style={{ marginTop: '24px', paddingBottom: '12px' }}>
+                        <button onClick={() => setShowWordWindow(false)} style={{
                             width: '100%', padding: '12px', borderRadius: '8px',
                             backgroundColor: colors.teal, color: 'white', border: 'none',
                             cursor: 'pointer', fontSize: '14px', fontWeight: '600'
