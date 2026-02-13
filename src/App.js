@@ -99,151 +99,160 @@ const weekExpectations = {
     24: "This week is about formation with traction: Scripture in your hands, Jesus in your center, and one clear practice you can actually repeat. You're not just learning information—you're rehearsing a new way of living. 90-day Rule of Life. Disciple-making plan submission. Finishing faithful with hope fixed on Christ's return."
 };
 
-// HEBREW/GREEK WORD WINDOWS (From PDF)
+// HEBREW/GREEK WORD WINDOWS (From Acts 2 Formation PDF)
 const wordWindows = {
     1: {
         hebrew: 'תַּלְמִיד',
         greek: 'μαθητής',
         transliteration: 'Talmid / mathētēs',
-        meaning: 'Disciple/apprentice; learner who follows to become',
+        meaning: 'Disciple/apprentice; learner who follows to become.',
         formationQ: 'What is one way I will follow Jesus\' way (not just His words) this week?'
     },
     2: {
-        hebrew: 'תּוֹרָה',
-        transliteration: 'Torah',
-        meaning: 'Instruction/teaching (not just "law")',
+        hebrew: 'תְּשׁוּבָה',
+        greek: 'μετάνοια',
+        transliteration: 'Teshuvah / metanoia',
+        meaning: 'Return/repent; a changed mind that turns the body.',
         formationQ: 'How is Scripture training me, not just informing me?'
     },
     3: {
-        hebrew: 'כָּבוֹד',
-        transliteration: 'Kāvôd',
-        meaning: 'Glory/weightiness—God\'s "heaviness" of worth',
+        hebrew: 'אֱמוּנָה',
+        greek: 'πίστις',
+        transliteration: 'Emunah / pistis',
+        meaning: 'Faithfulness/trust; reliance that shows up in action.',
         formationQ: 'Where am I giving weight to things other than God?'
     },
     4: {
-        greek: 'κοινωνία',
-        transliteration: 'Koinōnia',
-        meaning: 'Fellowship/partnership—deep communion',
+        hebrew: 'חֶסֶד',
+        greek: 'ἀγάπη',
+        transliteration: 'Hesed / agapē',
+        meaning: 'Covenant love; loyal love that moves first.',
         formationQ: 'How does the Trinity shape how I relate to others?'
     },
     5: {
-        hebrew: 'צֶלֶם',
-        transliteration: 'Tselem',
-        meaning: 'Image—reflection/representation',
+        hebrew: 'קָדוֹשׁ',
+        greek: 'ἅγιος',
+        transliteration: 'Kadosh / hagios',
+        meaning: 'Holy/set-apart; distinct for God\'s purposes.',
         formationQ: 'How am I reflecting God\'s character this week?'
     },
     6: {
-        hebrew: 'חֶסֶד',
-        transliteration: 'Ḥesed',
-        meaning: 'Steadfast love/covenant mercy',
+        hebrew: 'שָׁלוֹם',
+        greek: 'εἰρήνη',
+        transliteration: 'Shalom / eirēnē',
+        meaning: 'Wholeness/peace; integration under God.',
         formationQ: 'Where do I need to trust God\'s faithful care?'
     },
     7: {
-        greek: 'μεταμορφόω',
-        transliteration: 'Metamorphoō',
-        meaning: 'Transform/transfigure—deep change',
+        hebrew: 'עוֹל',
+        greek: 'ζυγός',
+        transliteration: 'Yoke / zygos',
+        meaning: 'A way of life under a teacher.',
         formationQ: 'What old pattern is God transforming in me?'
     },
     8: {
-        greek: 'χάρις',
-        transliteration: 'Charis',
-        meaning: 'Grace—unearned favor and empowering presence',
+        hebrew: 'חַבְרוּתָא',
+        transliteration: 'Chavruta',
+        meaning: 'Paired learning through dialogue and holy wrestling.',
         formationQ: 'Where am I living from performance instead of grace?'
     },
     9: {
-        hebrew: 'כָּפַר',
-        transliteration: 'Kāphar',
-        meaning: 'Atonement—cover/reconcile',
+        hebrew: 'ַרוּח',
+        greek: 'πνεῦμα',
+        transliteration: 'Ruach / pneuma',
+        meaning: 'Spirit/breath; God\'s empowering presence.',
         formationQ: 'What am I trying to atone for that Jesus already finished?'
     },
     10: {
-        greek: 'σῴζω',
-        transliteration: 'Sōzō',
-        meaning: 'Save/heal/make whole',
+        greek: 'ἐκκλησία',
+        transliteration: 'Ekklesia',
+        meaning: 'The called-out assembly; the church as a people on mission.',
         formationQ: 'What area of my life needs Jesus\' healing touch?'
     },
     11: {
-        greek: 'καρπός',
-        transliteration: 'Karpos',
-        meaning: 'Fruit—evidence of life within',
+        greek: 'χαρίσματα',
+        transliteration: 'Charismata',
+        meaning: 'Grace-gifts for building up the Body.',
         formationQ: 'What fruit is the Spirit growing in me right now?'
     },
     12: {
-        greek: 'ἀγάπη',
-        transliteration: 'Agapē',
-        meaning: 'Love—sacrificial, covenant love',
+        greek: 'διακονία',
+        transliteration: 'Diakonia',
+        meaning: 'Service/ministry; love in action.',
         formationQ: 'How does love shape my words this week?'
     },
     13: {
-        greek: 'χάρισμα',
-        transliteration: 'Charisma',
-        meaning: 'Gift of grace—Spirit-given ability',
+        greek: 'εὐαγγέλιον',
+        transliteration: 'Euangelion',
+        meaning: 'Good news; the announcement of Jesus\' reign.',
         formationQ: 'How am I stewarding the gifts God has given me?'
     },
     14: {
-        greek: 'προσευχή',
-        transliteration: 'Proseuchē',
-        meaning: 'Prayer—partnership with God',
+        greek: 'μαθητεύσατε',
+        transliteration: 'Matheteusate',
+        meaning: 'Make disciples; apprentice others into Jesus\' way.',
         formationQ: 'Am I praying from striving or from rest?'
     },
     15: {
-        hebrew: 'בְּרִית',
-        transliteration: 'Berith',
-        meaning: 'Covenant—binding relationship',
+        greek: 'παρακαλέω',
+        transliteration: 'Parakaleo',
+        meaning: 'Encourage/exhort/comfort; strengthening others\' courage.',
         formationQ: 'What does covenant community require of me this week?'
     },
     16: {
-        greek: 'πάλη',
-        transliteration: 'Palē',
-        meaning: 'Struggle/wrestling—spiritual warfare',
+        greek: 'κοινωνία',
+        transliteration: 'Koinonia',
+        meaning: 'Fellowship/participation; shared life.',
         formationQ: 'Where am I fighting the wrong enemy?'
     },
     17: {
-        greek: 'μάρτυς',
-        transliteration: 'Martys',
-        meaning: 'Witness—one who testifies',
+        greek: 'σωφροσύνη',
+        transliteration: 'Sōphrosynē',
+        meaning: 'Sound mind/self-control; Spirit-led restraint.',
         formationQ: 'Who needs to hear my story of Jesus this week?'
     },
     18: {
-        greek: 'βασιλεία',
-        transliteration: 'Basileia',
-        meaning: 'Kingdom—reign and realm of God',
+        greek: 'δύναμις',
+        transliteration: 'Dunamis',
+        meaning: 'Power; capacity supplied by God.',
         formationQ: 'How does Kingdom citizenship change how I live today?'
     },
     19: {
-        hebrew: 'שָׁמַע',
-        transliteration: 'Shema',
-        meaning: 'Hear/obey—attentive response',
+        greek: 'λογισμοί',
+        transliteration: 'Logismoi',
+        meaning: 'Thought patterns/reasonings.',
         formationQ: 'How am I discipling those in my home?'
     },
     20: {
-        greek: 'φωνή',
-        transliteration: 'Phōnē',
-        meaning: 'Voice—sound/utterance',
+        greek: 'νικάω',
+        transliteration: 'Nikaō',
+        meaning: 'To overcome/conquer.',
         formationQ: 'Am I listening for God\'s voice or just noise?'
     },
     21: {
-        greek: 'παρατίθημι',
-        transliteration: 'Paratithēmi',
-        meaning: 'Entrust/deposit—pass on faithfully',
+        greek: 'πίστις + πρᾶξις',
+        transliteration: 'Pistis + Praxis',
+        meaning: 'Trust that becomes practice.',
         formationQ: 'Who am I investing in as a spiritual mentor?'
     },
     22: {
-        greek: 'δόμα',
-        transliteration: 'Doma',
-        meaning: 'Gift—given by God for the body',
+        greek: 'οἶκος',
+        transliteration: 'Oikos',
+        meaning: 'Household network; relational field for ministry.',
         formationQ: 'How am I honoring the fivefold gifts in the church?'
     },
     23: {
-        greek: 'ὑποτάσσω',
-        transliteration: 'Hypotassō',
-        meaning: 'Submit—voluntary alignment under authority',
+        hebrew: 'מָרַנָא תָּא',
+        greek: 'μαρὰν ἀθά',
+        transliteration: 'Maranatha',
+        meaning: '\'Our Lord, come\'—hope that fuels holiness.',
         formationQ: 'Where is God calling me to servant leadership?'
     },
     24: {
-        greek: 'ἀποστέλλω',
-        transliteration: 'Apostellō',
-        meaning: 'Send forth—commissioned with authority',
+        hebrew: 'ַשָׁלִיח',
+        greek: 'ἀπόστολος',
+        transliteration: 'Shaliach / apostolos',
+        meaning: 'Sent one; commissioned representative.',
         formationQ: 'How am I living as one sent by Jesus?'
     }
 };
